@@ -33,9 +33,17 @@ export function executarTurno(atacante, alvo){
     if (escolha === 1){
         Acoes.atacar(atacante, alvo);
     } else if (escolha === 2){
+        console.log(`Habilidades disponíveis:`);
+    for (let i = 0; i < atacante.habilidades.length; i++){
+        console.log(atacante.habilidades[i].nome);
+    }
         const nomeHabilidade = prompt(`Qual habilidade?`);
         Acoes.usarHabilidade(atacante, nomeHabilidade, alvo);
     } else if (escolha === 3){
+        console.log(`Itens disponíveis:`);
+    for (let i = 0; i < atacante.itens.length; i++){
+        console.log(atacante.itens[i].nome);
+    }
         const nomeItem = prompt(`Qual item?`);
         Acoes.usarItem(atacante, nomeItem);
     } else if (escolha === 4){
