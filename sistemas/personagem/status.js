@@ -5,7 +5,8 @@ export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade)
         energia, // numero
         ataque, // numero
         defesa, // numero
-        velocidade // numero
+        velocidade, // numero
+        habilidades: [] // sem habilidades
     };
 }
 
@@ -32,4 +33,16 @@ export function estarVivo(personagem){
     } else{
         return false;
     }
+}
+
+export function aprenderHabilidade(personagem, habilidade) {
+    personagem.habilidades.push(habilidade);
+}
+
+export function curarVida(personagem, quantidade){
+    personagem.vida += quantidade;
+}
+
+export function curarEnergia(personagem, quantidade){
+    personagem.energia += quantidade;
 }
