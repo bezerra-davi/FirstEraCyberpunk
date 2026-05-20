@@ -1,3 +1,5 @@
+import { itens } from "../itens/itens";
+
 export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade){
     return{
         nome, // string
@@ -6,7 +8,8 @@ export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade)
         ataque, // numero
         defesa, // numero
         velocidade, // numero
-        habilidades: [] // sem habilidades
+        habilidades: [], // sem habilidades
+        itens: []
     };
 }
 
@@ -37,6 +40,10 @@ export function estarVivo(personagem){
 
 export function aprenderHabilidade(personagem, habilidade) {
     personagem.habilidades.push(habilidade);
+}
+
+export function pegarItem(personagem, item) {
+    personagem.itens.push(item);
 }
 
 export function curarVida(personagem, quantidade){
