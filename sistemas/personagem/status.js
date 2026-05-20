@@ -1,5 +1,3 @@
-import { itens } from "../itens/itens";
-
 export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade){
     return{
         nome, // string
