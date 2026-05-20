@@ -1,7 +1,7 @@
 # Tema do jogo
 
 O jogo vai ser numa pegada meio ARG em um computador antigo em que
-o jogador será guiado por um guia e o jogo vai precisar ter terror
+o jogador será guiado por um guia e o jogo vai precisar ter **terror**
 
 ## Começo
 
