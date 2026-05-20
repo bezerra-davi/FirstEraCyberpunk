@@ -25,11 +25,11 @@ você entra na floresta, combate uns monstros e posteriormente você enco
 ## Formula basica do combate
 
 Dano recebido = ataque do inimigo - defesa do alvo
+
 Dano total = vida do player - dano recebido
+
 Quem age primeiro = quem tem mais velocidade
 
 ## Mecanica especial
 
-Quando o jogo avanca, ele começa a se comportar de forma estranha.
-Tempo de dialogo avancando rapidamente resultando na pior escolha.
-Nome dos inimigos "corrompidos"
+Quando o jogo avanca, ele começa a se comportar de forma estranha. Tempo de dialogo avancando rapidamente resultando na pior escolha, nome dos inimigos "corrompidos" ...
