@@ -13,6 +13,7 @@ você entra na floresta, combate uns monstros e posteriormente você enco
 # Mecanicas
 
 **Status:** Vida, Energia, Ataque, Defesa e Velocidade
+
 **Menu de Combate:** Ataque, Habilidades, Itens e Defesa
 
 - Ataque e um golpe simples que nao custa energia.
