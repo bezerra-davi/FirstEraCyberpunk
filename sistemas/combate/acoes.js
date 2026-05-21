@@ -6,7 +6,14 @@ export function atacar(atacante, alvo){
     Status.tomarDano(alvo, atacante.ataque);
 }
 
-export function defender(atacante, alvo){       // esperando o Alvaro
+export function defender(danoRecebido){
+    let danoDefendido = Math.floor(Math.random() * 30) + 1
+    let defesa = danoRecebido - danoDefendido
+    if(defesa < 0){
+    return defesa = 0
+    } else{
+    return defesa
+    }
 }
 
 export function usarHabilidade(personagem, nomeHabilidade, alvo){
