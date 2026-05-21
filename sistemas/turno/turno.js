@@ -47,7 +47,8 @@ export function executarTurno(atacante, alvo){
         const nomeItem = prompt(`Qual item?`);
         Acoes.usarItem(atacante, nomeItem);
     } else if (escolha === 4){
-        Acoes.defender(atacante, alvo);     // Nao tem nada aqui por enquanto
+    const danoFinal = Acoes.defender(alvo.ataque);
+    Status.tomarDanoDefendido(atacante, danoFinal);
     }
 
     verificarFimCombate(atacante, alvo);
