@@ -28,6 +28,10 @@ export function gastarEnergia(personagem, custo){
     }
 }
 
+export function tomarDanoDefendido(personagem, dano){
+    personagem.vida -= dano;
+}
+
 export function estarVivo(personagem){
     if (personagem.vida > 0){
         return true;
