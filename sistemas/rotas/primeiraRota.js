@@ -13,5 +13,6 @@ export function escolherCaminho1(caminho, opcao1, opcao2, opcao3){
                     default:
                     return `tentativa inválida`;
       }
+        caminho = Number(Prompt(`Escolhar outro caminho: `))
    }
 }
