@@ -1,5 +1,19 @@
 import * as Status from './personagem/status.js';
 import * as Acoes from './combate/acoes.js';
+import * as Habilidades from './habilidades/habilidades.js';
+
+export function recompensaHabilidade(personagem) {
+    const opcoes = Habilidades.escolherHabilidades();
+
+    console.log(`Escolha uma habilidade:`);
+    console.log(`1 - ${opcoes[0].nome}`);
+    console.log(`2 - ${opcoes[1].nome}`);
+    console.log(`3 - ${opcoes[2].nome}`);
+
+    const escolha = parseInt(prompt(`Digite 1, 2 ou 3:`));
+    Status.aprenderHabilidade(personagem, opcoes[escolha - 1]);
+    console.log(`${opcoes[escolha - 1].nome} aprendida.`);
+}
 
 export function quemAgePrimeiro(personagem1, personagem2){      // se empatar o personagem1 vai sempre ser o primeiro
     if (personagem1.velocidade >= personagem2.velocidade){
@@ -56,15 +70,19 @@ export function executarTurno(atacante, alvo){
 
 export function iniciarCombate(personagem1, personagem2) {
     console.log(`Combate iniciado.`);
-
     while(!verificarFimCombate(personagem1, personagem2)){
         const primeiro = quemAgePrimeiro(personagem1, personagem2);
         const segundo = primeiro === personagem1 ? personagem2 : personagem1;
-
         executarTurno(primeiro, segundo);
-
         if (!verificarFimCombate(personagem1, personagem2)){
             executarTurno(segundo, primeiro);
         }
     }
+    let player;
+    if (personagem1.jogador === true){
+        player = personagem1;
+    } else {
+        player = personagem2;
+    }
+    recompensaHabilidade(player);
 }
