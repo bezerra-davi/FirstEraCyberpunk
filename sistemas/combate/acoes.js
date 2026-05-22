@@ -7,7 +7,7 @@ export function atacar(atacante, alvo){
 }
 
 export function defender(danoRecebido){
-    let danoDefendido = Math.floor(Math.random() * 30) + 1
+    let danoDefendido = Math.floor(Math.random() * danoRecebido) + 1
     let defesa = danoRecebido - danoDefendido
     if(defesa < 0){
     return defesa = 0
