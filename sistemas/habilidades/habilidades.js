@@ -10,3 +10,18 @@ export function buscarHabilidade(nome) {
         }
     }
 }
+
+export function escolherHabilidades() {
+const tresHabilidades = [];
+
+while (tresHabilidades.length < 3) {
+            const indice = Math.floor(Math.random() * habilidades.length);
+            const habilidade = habilidades[indice];
+            
+            if (!tresHabilidades.includes(habilidade)) {  //Esse includes vai verificar as habilidades, pra nao sortear a msm varias vezes
+            tresHabilidades.push(habilidade);
+        }
+    }
+
+    return tresHabilidades;
+}
