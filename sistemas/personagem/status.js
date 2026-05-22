@@ -7,7 +7,8 @@ export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade)
         defesa, // numero
         velocidade, // numero
         habilidades: [], // sem habilidades
-        itens: []
+        itens: [],
+        jogador
     };
 }
 
