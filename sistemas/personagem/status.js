@@ -1,4 +1,4 @@
-export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade){
+export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade, jogador){
     return{
         nome, // string
         vida, // numero
