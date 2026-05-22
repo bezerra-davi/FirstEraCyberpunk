@@ -8,11 +8,11 @@ export function escolherCaminho1(caminho, opcao1, opcao2, opcao3){
                 console.log(opcao2);
                 break
                 case 3:
-                    return opcao3;
+                    return console.log(opcao3);
     
                     default:
                     return `tentativa inválida`;
       }
-        caminho = Number(Prompt(`Escolhar outro caminho: `))
+        caminho = Number(prompt(`Escolhar outro caminho: `))
    }
 }
