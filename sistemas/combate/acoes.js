@@ -1,7 +1,7 @@
-import * as Status from './personagem/status.js';   // isso aqui e pra pegar as funcoes la do status.js
-import * as Habilidades from './habilidades/habilidades.js';
-import * as Itens from './itens/itens.js';
-import * as TipoDeDano from './combate/tipodeDano.js';
+import * as Status from '../personagem/status.js';   // isso aqui e pra pegar as funcoes la do status.js
+import * as Habilidades from '../habilidades/habilidades.js';
+import * as Itens from '../itens/itens.js';
+import * as TipoDeDano from '../combate/tipodeDano.js';
 
 export function atacar(atacante, alvo) {
     let dano = TipoDeDano.danoAleatorio(atacante.ataque);

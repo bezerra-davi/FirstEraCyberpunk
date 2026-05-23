@@ -1,6 +1,8 @@
 export const habilidades = [                      // basicamente todas as habilidades do jogo
-    {nome: `placeholder`, custo: 67, dano: 42},
-
+    {nome: `davi`, custo: 67, dano: 42},
+    {nome: `ohio`, custo: 67, dano: 42},
+    {nome: `abacatudo`, custo: 67, dano: 42},
+    {nome: `biruleibe`, custo: 67, dano: 42},
 ]
 
 export function buscarHabilidade(nome) {
