@@ -1,5 +1,6 @@
 // a gente precisava desse readline pq aparentemente o prompt do javascript não funciona no node.js pra executar no terminal
 // ele basicamente consegue ler oq a pessoa digita no terminal
+import * as readline from 'readline';
 
 const rl = readline.createInterface({  // esse createInterface conecta o readline com o terminal do computador
   input: process.stdin,  // process.stdin e como se fosse a "entrada" do terminal, o teclado da pessoa
