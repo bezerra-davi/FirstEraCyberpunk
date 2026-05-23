@@ -1,7 +1,7 @@
 import * as Turno from '../../sistemas/turno/turno.js';
 import * as Status from '../../sistemas/personagem/status.js';
 import * as Itens from '../../sistemas/itens/itens.js';
-import { lerInput } from '../../input.js';
+import { lerInput, printLento } from '../../input.js';
 
 export async function executarCenaFloresta(cena, personagem) {
     switch(cena) {

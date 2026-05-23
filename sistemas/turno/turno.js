@@ -78,8 +78,10 @@ export async function executarTurno(atacante, alvo){
         const acao = Math.floor(Math.random() * 2) + 1;
         console.log(`${atacante.nome} está agindo...`);
         if (acao === 1){
+            console.log(`${atacante.nome} atacou!`);
             Acoes.atacar(atacante, alvo);
         } else {
+            console.log(`${atacante.nome} se defendeu!`);
             const danoFinal = Acoes.defender(alvo.ataque);
             Status.tomarDanoDefendido(atacante, danoFinal);
         }

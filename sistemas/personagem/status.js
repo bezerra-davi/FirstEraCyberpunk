@@ -18,6 +18,7 @@ export function tomarDano(personagem, dano){
     if (dano > personagem.defesa){
         let danoReal = dano - personagem.defesa;
         personagem.vida -= danoReal;
+        return danoReal;
     } else{
         console.log(`${personagem.nome} bloqueou o ataque.`);
     }

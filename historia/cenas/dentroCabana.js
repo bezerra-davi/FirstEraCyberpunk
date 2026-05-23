@@ -1,0 +1,1 @@
+import { lerInput, printLento } from '../../input.js';

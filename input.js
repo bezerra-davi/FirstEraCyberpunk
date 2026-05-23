@@ -22,3 +22,17 @@ export function lerInput(texto) {
 export function fecharInput() {
   rl.close();
 }
+
+function esperar(ms) {
+  return new Promise(function(resolve) {
+    setTimeout(resolve, ms);
+  });
+}
+
+export async function printLento(texto) {
+  for (let i = 0; i < texto.length; i++) {
+    process.stdout.write(texto[i]);
+    await esperar(25); // 25ms entre cada letra
+  }
+  console.log(); // pula linha no final
+}

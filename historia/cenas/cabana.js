@@ -1,4 +1,4 @@
-import { lerInput } from '../../input.js';
+import { lerInput, printLento } from '../../input.js';
 
 export async function executarCenaCabana(cena, personagem) {
   switch(cena) {
@@ -9,7 +9,7 @@ export async function executarCenaCabana(cena, personagem) {
       await lerInput(`[Enter para continuar]`);
       console.log(`A fogueira é acesa, e você acha uma forma de assar corretamente a carne do coelho.`);
       await lerInput(`[Enter para continuar]`);
-      console.log(`De repente...`);
+      await printLento(`De repente...`);
       await lerInput(`[Enter para continuar]`);
       console.log(`Estranho: Oiiiiii`);
       await lerInput(`[Enter para continuar]`);
@@ -27,15 +27,15 @@ export async function executarCenaCabana(cena, personagem) {
       await lerInput(`[Enter para continuar]`);
       console.log(`Dono da cabana: Ah, muito esperado, é muito comum as pessoas se perderem nessa floresta por conta de suas propriedades mágicas.`);
       await lerInput(`[Enter para continuar]`);
-      console.log(`― Propriedades mágicas?`);
+      await printLento(`― Propriedades mágicas?`);
       await lerInput(`[Enter para continuar]`);
       console.log(`Dono da cabana: Sim esta floresta não é normal, você mesmo está assando a carne de um coelho azul na sua mão.`);
       await lerInput(`[Enter para continuar]`);
       console.log(`Você percebe que a pelagem do coelho realmente é azul.`);
       await lerInput(`[Enter para continuar]`);
-      console.log(`― Como que eu não notei isso?`);
+      await printLento(`― Como que eu não notei isso?`);
       await lerInput(`[Enter para continuar]`);
-      console.log(`Dono da cabana: É somente um detalhe!`);
+      await printLento(`Dono da cabana: É somente um detalhe!`);
       await lerInput(`[Enter para continuar]`);
       console.log(`Dono da cabana: Não se preocupe com isso, vamos entrando, o sol já está se pondo.`);
       await lerInput(`[Enter para continuar]`);

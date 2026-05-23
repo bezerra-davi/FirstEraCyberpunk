@@ -6,7 +6,10 @@ import * as TipoDeDano from '../combate/tipodeDano.js';
 export function atacar(atacante, alvo) {
     let dano = TipoDeDano.danoAleatorio(atacante.ataque);
     dano = TipoDeDano.calcularCritico(dano);
-    Status.tomarDano(alvo, dano);
+    const danoReal = Status.tomarDano(alvo, dano);
+    if (danoReal > 0){
+        console.log(`${atacante.nome} causou ${danoReal} de dano em ${alvo.nome}!`);
+    }
 }
 
 export function defender(danoRecebido){
@@ -22,11 +25,15 @@ export function defender(danoRecebido){
 export function usarHabilidade(personagem, nomeHabilidade, alvo){
     const habilidade = Habilidades.buscarHabilidade(nomeHabilidade);
     Status.gastarEnergia(personagem, habilidade.custo);
-    Status.tomarDano(alvo, habilidade.dano);
+    const danoReal = Status.tomarDano(alvo, habilidade.dano);
+    if (danoReal > 0){
+        console.log(`${personagem.nome} usou ${habilidade.nome} e causou ${danoReal} de dano em ${alvo.nome}!`);
+    }
 }
 
 export function usarItem(personagem, nomeItem){
     const item = Itens.buscarItem(nomeItem);
     Status.curarVida(personagem, item.cura);
     Status.curarEnergia(personagem, item.curaEnergia);
+    console.log(`${personagem.nome} usou ${item.nome} e recuperou ${item.cura} de vida e ${item.curaEnergia} de energia!`);
 }
