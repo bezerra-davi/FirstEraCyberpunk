@@ -53,3 +53,12 @@ export function curarVida(personagem, quantidade){
 export function curarEnergia(personagem, quantidade){
     personagem.energia += quantidade;
 }
+
+export function mostrarStatus(personagem){
+                console.log(`STATUS:`);
+                console.log(`Vida: ${personagem.vida}`);
+                console.log(`Energia: ${personagem.energia}`);
+                console.log(`Ataque: ${personagem.ataque}`);
+                console.log(`Defesa: ${personagem.defesa}`);
+                console.log(`Velocidade: ${personagem.velocidade}`);
+}
