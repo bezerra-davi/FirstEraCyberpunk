@@ -27,7 +27,7 @@ export function tomarDano(personagem, dano){
 export function gastarEnergia(personagem, custo){
     if (personagem.energia >= custo){
         personagem.energia -= custo;
-    }
+    } // Adicionar se mana < custo não deixar ele castar
 }
 
 export function estarVivo(personagem){
