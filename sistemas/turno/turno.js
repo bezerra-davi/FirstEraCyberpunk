@@ -70,7 +70,6 @@ export async function executarTurno(atacante, alvo){
                 }
             } else if (escolha === 4){
                 const danoFinal = Acoes.defender(alvo.ataque);
-                Status.tomarDanoDefendido(atacante, danoFinal);
                 break;
             }
         }
@@ -83,7 +82,6 @@ export async function executarTurno(atacante, alvo){
         } else {
             console.log(`${atacante.nome} se defendeu!`);
             const danoFinal = Acoes.defender(alvo.ataque);
-            Status.tomarDanoDefendido(atacante, danoFinal);
         }
     }
 }
