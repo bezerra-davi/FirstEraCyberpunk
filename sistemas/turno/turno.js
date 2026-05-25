@@ -88,6 +88,7 @@ export async function executarTurno(atacante, alvo){
 
 export async function iniciarCombate(personagem1, personagem2) {
     console.log(`Combate iniciado.`);
+    let contagemTurno = 0;
     let player, inimigo;
     if (personagem1.jogador === true){
         player = personagem1;
@@ -97,6 +98,8 @@ export async function iniciarCombate(personagem1, personagem2) {
         inimigo = personagem1;
     }
     while(true){
+        contagemTurno++;
+        console.log(`Turno: ${contagemTurno}`);
     await executarTurno(player, inimigo);
     if (verificarFimCombate(player, inimigo)){
         console.log(`${inimigo.nome} foi derrotado!`);
