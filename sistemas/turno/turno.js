@@ -40,6 +40,7 @@ export async function executarTurno(atacante, alvo){
             console.log(`2 - Habilidade`);
             console.log(`3 - Item`);
             console.log(`4 - Defender`);
+            console.log(`5 - Status`);
             const escolha = parseInt(await lerInput(`Digite o número da ação:`));
             if (escolha === 1){
                 Acoes.atacar(atacante, alvo);
@@ -71,6 +72,8 @@ export async function executarTurno(atacante, alvo){
             } else if (escolha === 4){
                 const danoFinal = Acoes.defender(alvo.ataque);
                 break;
+            } else if (escolha === 5){
+            mostrarStatus(atacante)
             }
         }
     } else {
