@@ -73,7 +73,7 @@ export async function executarTurno(atacante, alvo){
                 const danoFinal = Acoes.defender(alvo.ataque);
                 break;
             } else if (escolha === 5){
-            mostrarStatus(atacante)
+            Status.mostrarStatus(atacante)
             }
         }
     } else {
