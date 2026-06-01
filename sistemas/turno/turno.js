@@ -69,8 +69,8 @@ export async function executarTurno(atacante, alvo){
                     break;
                 }
             } else if (escolha === 4){
-                const danoFinal = Acoes.defender(alvo.ataque);
-                Status.tomarDanoDefendido(atacante, danoFinal);
+                atacante.defendendo = true;
+                console.log(`${atacante.nome} está se defendendo!`);
                 break;
             }
         }
@@ -100,11 +100,15 @@ export async function iniciarCombate(personagem1, personagem2) {
     }
     while(true){
     await executarTurno(player, inimigo);
+    player.defendendo = false;
+    inimigo.defendendo = false;
     if (verificarFimCombate(player, inimigo)){
         console.log(`${inimigo.nome} foi derrotado!`);
         break;
     }
     await executarTurno(inimigo, player);
+    player.defendendo = false;
+    inimigo.defendendo = false;
     if (verificarFimCombate(player, inimigo)){
         console.log(`${player.nome} foi derrotado!`);
         break;

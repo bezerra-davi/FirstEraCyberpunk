@@ -8,19 +8,28 @@ export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade,
         velocidade, // numero
         habilidades: [], // sem habilidades
         itens: [],
-        jogador
+        jogador,
+        defendendo: false  // estado de defesa
     };
 }
 
 // exemplo pra criar o personagem: let Davi = criarPersonagem(`Davi`, 100, 25, 10, 12, 6)
 
 export function tomarDano(personagem, dano){
+    if (personagem.defendendo === true){
+    let danoDefendido = Math.floor(Math.random() * 30) + 1;
+    dano = dano - danoDefendido;
+    if (dano < 0){
+    dano = 0;
+    }
+    }
     if (dano > personagem.defesa){
         let danoReal = dano - personagem.defesa;
         personagem.vida -= danoReal;
         return danoReal;
     } else{
         console.log(`${personagem.nome} bloqueou o ataque.`);
+        return 0;
     }
 }
 
