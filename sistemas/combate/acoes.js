@@ -12,15 +12,15 @@ export function atacar(atacante, alvo) {
     }
 }
 
-export function defender(danoRecebido){
-    let danoDefendido = Math.floor(Math.random() * danoRecebido) + 1
-    let defesa = danoRecebido - danoDefendido
-    if(defesa < 0){
-    return defesa = 0
-    } else{
-    return defesa
-    }
-}
+//export function defender(danoRecebido){
+//    let danoDefendido = Math.floor(Math.random() * danoRecebido) + 1
+//    let defesa = danoRecebido - danoDefendido
+//    if(defesa < 0){
+//    return defesa = 0
+//    } else{
+//    return defesa
+//    }
+//}
 
 export function usarHabilidade(personagem, nomeHabilidade, alvo){
     const habilidade = Habilidades.buscarHabilidade(nomeHabilidade);
