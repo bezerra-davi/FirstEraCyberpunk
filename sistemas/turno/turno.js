@@ -40,6 +40,7 @@ export async function executarTurno(atacante, alvo){
             console.log(`2 - Habilidade`);
             console.log(`3 - Item`);
             console.log(`4 - Defender`);
+            console.log(`5 - Status`);
             const escolha = parseInt(await lerInput(`Digite o número da ação:`));
             if (escolha === 1){
                 Acoes.atacar(atacante, alvo);
@@ -72,6 +73,8 @@ export async function executarTurno(atacante, alvo){
                 atacante.defendendo = true;
                 console.log(`${atacante.nome} está se defendendo!`);
                 break;
+            } else if (escolha === 5){
+            Status.mostrarStatus(atacante)
             }
         }
     } else {
@@ -83,13 +86,13 @@ export async function executarTurno(atacante, alvo){
         } else {
             console.log(`${atacante.nome} se defendeu!`);
             const danoFinal = Acoes.defender(alvo.ataque);
-            Status.tomarDanoDefendido(atacante, danoFinal);
         }
     }
 }
 
 export async function iniciarCombate(personagem1, personagem2) {
     console.log(`Combate iniciado.`);
+    let contagemTurno = 0;
     let player, inimigo;
     if (personagem1.jogador === true){
         player = personagem1;
@@ -99,6 +102,8 @@ export async function iniciarCombate(personagem1, personagem2) {
         inimigo = personagem1;
     }
     while(true){
+        contagemTurno++;
+        console.log(`Turno: ${contagemTurno}`);
     await executarTurno(player, inimigo);
     player.defendendo = false;
     inimigo.defendendo = false;

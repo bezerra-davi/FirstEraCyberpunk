@@ -36,11 +36,7 @@ export function tomarDano(personagem, dano){
 export function gastarEnergia(personagem, custo){
     if (personagem.energia >= custo){
         personagem.energia -= custo;
-    }
-}
-
-export function tomarDanoDefendido(personagem, dano){
-    personagem.vida -= dano;
+    } // Adicionar se mana < custo não deixar ele castar
 }
 
 export function estarVivo(personagem){
@@ -65,4 +61,13 @@ export function curarVida(personagem, quantidade){
 
 export function curarEnergia(personagem, quantidade){
     personagem.energia += quantidade;
+}
+
+export function mostrarStatus(personagem){
+                console.log(`STATUS:`);
+                console.log(`Vida: ${personagem.vida}`);
+                console.log(`Energia: ${personagem.energia}`);
+                console.log(`Ataque: ${personagem.ataque}`);
+                console.log(`Defesa: ${personagem.defesa}`);
+                console.log(`Velocidade: ${personagem.velocidade}`);
 }
