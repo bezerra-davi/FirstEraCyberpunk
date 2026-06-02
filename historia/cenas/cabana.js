@@ -41,6 +41,6 @@ export async function executarCenaCabana(cena, personagem) {
       await lerInput(`[Enter para continuar]`);
       console.log(`O sol realmente está se pondo, então você entra.`);
       await lerInput(`[Enter para continuar]`);
-      return null;
+      return 6;
   }
 }

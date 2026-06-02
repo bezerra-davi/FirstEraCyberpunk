@@ -85,7 +85,7 @@ export async function executarTurno(atacante, alvo){
             Acoes.atacar(atacante, alvo);
         } else {
             console.log(`${atacante.nome} se defendeu!`);
-            const danoFinal = Acoes.defender(alvo.ataque);
+            atacante.defendendo = true;
         }
     }
 }
