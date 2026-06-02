@@ -29,9 +29,11 @@ export async function executarCenaMasmorra(cena, personagem) {
         await printLento(`Você não inspecionou o conteúdo dos livros.`);
         await lerInput(`[Enter para continuar]`);
         await printLento(`Pygma: Qual é seu nome?`);
-        // Alvaro vai botar o negocio de inserir o nome
+        const nomeEscolhido = await lerInput(`Insira o nome do Héroi: `)
+        personagem.nome = nomeEscolhido  
+        await printLento(`Seu nome agora é ${personagem.nome}.`)  // Teste do nome do héroi
         await lerInput(`[Enter para continuar]`);
-        await printLento(`Realmente você se achava mesmo um herói?`);
+        await printLento(`Você realmente se achava um herói?`);
         await lerInput(`[Enter para continuar]`);
         await printLento(`― Pygma, eu ainda não entendi sobre o que é essa floresta...`);
         await lerInput(`[Enter para continuar]`);
