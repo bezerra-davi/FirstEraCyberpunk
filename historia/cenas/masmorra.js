@@ -1,4 +1,5 @@
 import { lerInput, printLento } from '../../input.js';
+import * as Status from '../../sistemas/personagem/status.js';
 
 export async function executarCenaMasmorra(cena, personagem) {
     switch(cena) {
