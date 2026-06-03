@@ -39,7 +39,7 @@ export async function executarCenaFloresta(cena, personagem) {
         await Turno.iniciarCombate(personagem, coelho);
         const carneCoelho = Itens.buscarItem(`Carne de Coelho`);
         Status.pegarItem(personagem, carneCoelho);
-        console.log(`Você obteve um item: Carne de Coelho!`);
+        await printLento(`Você obteve um item: Carne de Coelho!`);
         await lerInput(`[Enter para continuar]`);
         return 5;
     }
