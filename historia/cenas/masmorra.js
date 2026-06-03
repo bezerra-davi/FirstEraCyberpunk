@@ -1,5 +1,8 @@
-import { lerInput, printLento } from '../../input.js';
+import { lerInput, printLento, esperar } from '../../input.js';
 import * as Status from '../../sistemas/personagem/status.js';
+import * as Turno from '../../sistemas/turno/turno.js';
+import * as Itens from '../../sistemas/itens/itens.js';
+import * as Habilidades from '../../sistemas/habilidades/habilidades.js';
 
 export async function executarCenaMasmorra(cena, personagem) {
     switch(cena) {
@@ -82,7 +85,30 @@ export async function executarCenaMasmorra(cena, personagem) {
         await lerInput(`[Enter para continuar]`);
         await printLento(`Você sente que esse cara é um maluco.`);
         await lerInput(`[Enter para continuar]`);
+        return 16;
+    case 16:{
+        await printLento(`O que você vai fazer?`);
+        console.log(`1 - Correr`);
+        console.log(`2 - Lutar`);
+        const escolha = parseInt(await lerInput(``));
 
+        if (escolha === 2) {
+            await esperar(500);
+            await printLento(`Você decide lutar...`);
+            await esperar(800);
+    
+            for (let i = 0; i < 5; i++) {
+            await printLento(`VOCÊ NÃO PODE SAIR`);
+            await esperar(200);
+        }
+    
+        await esperar(600);
+        await printLento(`...`);
+        await esperar(800);
+        
+        //const Pygma = Status.criarPersonagem(`Pygma`, vida, energia, ataque, defesa, velocidade, false);
+        //await Turno.iniciarCombate(personagem, inimigo);
+    }
         //Opções: (Aqui vai ter o timer dramático)
         
         //- Correr
@@ -112,6 +138,7 @@ export async function executarCenaMasmorra(cena, personagem) {
 
         //"E agora?"
         
-        return 16;
+        return null;
+        }
     }
 }
