@@ -1,6 +1,6 @@
 export const itens = [                      // basicamente todos os itens do jogo
-    {nome: `placeholder`, cura: 67, curaEnergia: 42},
-    { nome: `Carne de Coelho`, cura: 20, curaEnergia: 10 },
+    {nome: `Health Stone`, cura: 10, curaEnergia: 0},
+    {nome: `Carne de Coelho`, cura: 3, curaEnergia: 5 },
     
 
 ]
