@@ -29,6 +29,17 @@ export function usarHabilidade(personagem, nomeHabilidade, alvo){
     if (danoReal > 0){
         console.log(`${personagem.nome} usou ${habilidade.nome} e causou ${danoReal} de dano em ${alvo.nome}!`);
     }
+    if (habilidade.debuff) {
+        const novoDebuff = {
+        nome: habilidade.debuff.nome,
+        danoPorTurno: habilidade.debuff.danoPorTurno,
+        duracao: habilidade.debuff.duracao
+        };
+        
+        alvo.debuffs.push(novoDebuff);
+        
+        console.log(`${alvo.nome} sofreu o efeito colateral: ${novoDebuff.nome}!`);
+    }
 }
 
 export function usarItem(personagem, nomeItem){

@@ -33,12 +33,32 @@ export function verificarFimCombate(personagem1, personagem2){
 }
 
 export async function executarTurno(atacante, alvo){
+
+    if (atacante.debuffs && atacante.debuffs.length > 0) {
+        for (let i = atacante.debuffs.length - 1; i >= 0; i--) {
+            const debuff = atacante.debuffs[i];
+            
+            atacante.vida -= debuff.danoPorTurno;
+            console.log(`${atacante.nome} sofreu ${debuff.danoPorTurno} de dano por estar com ${debuff.nome}!`);
+            debuff.duracao--;
+            
+            if (debuff.duracao <= 0) {
+                console.log(`O efeito de ${debuff.nome} em ${atacante.nome} terminou.`);
+                atacante.debuffs.splice(i, 1); // remove o debuff da lista
+            }
+        }
+
+        if (!Status.estarVivo(atacante)) {
+            return; 
+        }
+    }
+
     const acaoInimigo = Math.floor(Math.random() * 2) + 1;
     if (acaoInimigo === 1) {
-        console.log(`${inimigo.nome} vai atacar!`);
+        console.log(`${atacante.nome} vai atacar!`);
     } else {
-        console.log(`${inimigo.nome} vai se defender!`);
-        inimigo.defendendo = true;
+        console.log(`${atacante.nome} vai se defender!`);
+        atacante.defendendo = true;
     }
     if (atacante.jogador === true) {
         while(true) {
