@@ -2,7 +2,7 @@ export function calcularCritico(dano){
     let chanceCrit = Math.floor(Math.random() * 100) + 1 // Aqui gera um número aléatorio de 1 até 100
     
     if(chanceCrit <= 10){
-        return dano + 5
+        return  5
     }else{
         return dano
     }
