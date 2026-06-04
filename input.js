@@ -23,7 +23,7 @@ export function fecharInput() {
   rl.close();
 }
 
-function esperar(ms) {
+export function esperar(ms) {
   return new Promise(function(resolve) {
     setTimeout(resolve, ms);
   });
