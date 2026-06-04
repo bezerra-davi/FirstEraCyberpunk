@@ -41,6 +41,21 @@ export async function executarCenaFloresta(cena, personagem) {
         Status.pegarItem(personagem, carneCoelho);
         await printLento(`Você obteve um item: Carne de Coelho!`);
         await lerInput(`[Enter para continuar]`);
+        await printLento(`Após pegar a carne, o herói começa a sentir algo se aproximando.`);
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`Algo grande, movendo-se em alta velocidade`);
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`A criatura surge. Sua fúria é tão intensa que os insetos da floresta se afastam`);
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`Um coelho de pelagem azul, com quase dois metros e meio de altura, dentes serrilhados e olhos vermelhos amedrontadores`);
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`A mãe coelho, tomada pela fúria pela morte de seu filhote, e o herói assumem posições de combate`);
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`Seus olhares se cruzam. O combate começou`);
+        const maeCoelho = Status.criarPersonagem(`Mãe Coelho Azul`, 20, 0, 5, 2, 6, false);
+        await Turno.iniciarCombate(personagem, maeCoelho);
+        
+
         return 5;
     }
 }
