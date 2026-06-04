@@ -33,6 +33,13 @@ export function verificarFimCombate(personagem1, personagem2){
 }
 
 export async function executarTurno(atacante, alvo){
+    const acaoInimigo = Math.floor(Math.random() * 2) + 1;
+    if (acaoInimigo === 1) {
+        console.log(`${inimigo.nome} vai atacar!`);
+    } else {
+        console.log(`${inimigo.nome} vai se defender!`);
+        inimigo.defendendo = true;
+    }
     if (atacante.jogador === true) {
         while(true) {
             console.log(`${atacante.nome}, o que você quer fazer?`);
@@ -78,14 +85,8 @@ export async function executarTurno(atacante, alvo){
             }
         }
     } else {
-        const acao = Math.floor(Math.random() * 2) + 1;
-        console.log(`${atacante.nome} está agindo...`);
-        if (acao === 1){
-            console.log(`${atacante.nome} atacou!`);
+        if (acaoInimigo === 1){
             Acoes.atacar(atacante, alvo);
-        } else {
-            console.log(`${atacante.nome} se defendeu!`);
-            atacante.defendendo = true;
         }
     }
 }
