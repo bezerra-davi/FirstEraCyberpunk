@@ -35,7 +35,7 @@ export async function executarCenaFloresta(cena, personagem) {
         await lerInput(`[Enter para continuar]`);
         await printLento(`De repente você encontra um coelho azul e você fica surpreso com a tamanha conveniência.`);
         await lerInput(`[Enter para continuar]`);
-        const coelho = Status.criarPersonagem(`Coelho Azul`, 30, 0, 8, 2, 20, false);
+        const coelho = Status.criarPersonagem(`Coelho Azul`, 4, 0, 1, 1, 3, false);
         await Turno.iniciarCombate(personagem, coelho);
         const carneCoelho = Itens.buscarItem(`Carne de Coelho`);
         Status.pegarItem(personagem, carneCoelho);
