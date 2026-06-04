@@ -12,7 +12,9 @@ export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade,
         defendendo: false,  // estado de defesa
         habilidades: [], // sem habilidades
         itens: [],
-        debuffs: []
+        debuffs: [],
+        armaEquipada: null,
+        armaduraEquipada: null
     };
 }
 
@@ -89,4 +91,39 @@ export function restaurarStatus(personagem) {
     personagem.vida = personagem.vidaMaxima;
     personagem.energia = personagem.energiaMaxima;
     personagem.debuffs = [];
+}
+
+export function equiparItem(personagem, equipamento) {
+    if (equipamento.tipo === `arma`) {
+        if (personagem.armaEquipada !== null) {
+            personagem.ataque -= personagem.armaEquipada.bonusAtaque;
+            personagem.itens.push(personagem.armaEquipada);
+            console.log(`Você guardou ${personagem.armaEquipada.nome} na mochila.`);
+        }
+        
+        personagem.armaEquipada = equipamento;
+        personagem.ataque += equipamento.bonusAtaque;
+        console.log(`Você equipou ${equipamento.nome}. Seu ataque subiu para ${personagem.ataque}.`);
+    } 
+    
+    else if (equipamento.tipo === `armadura`) {
+        if (personagem.armaduraEquipada !== null) {
+            personagem.vidaMaxima -= personagem.armaduraEquipada.bonusVidaMaxima;
+            personagem.defesa -= personagem.armaduraEquipada.bonusDefesa;
+            
+            if (personagem.vida > personagem.vidaMaxima) {
+                personagem.vida = personagem.vidaMaxima;
+            }
+            
+            personagem.itens.push(personagem.armaduraEquipada);
+            console.log(`Você guardou ${personagem.armaduraEquipada.nome} na mochila.`);
+        }
+        
+        personagem.armaduraEquipada = equipamento;
+        personagem.vidaMaxima += equipamento.bonusVidaMaxima;
+        personagem.defesa += equipamento.bonusDefesa;
+        personagem.vida += equipamento.bonusVidaMaxima; 
+        
+        console.log(`Você vestiu ${equipamento.nome}. Vida máxima subiu para ${personagem.vidaMaxima} e defesa para ${personagem.defesa}.`);
+    }
 }

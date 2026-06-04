@@ -2,6 +2,7 @@ import * as Status from '../personagem/status.js';   // isso aqui e pra pegar as
 import * as Habilidades from '../habilidades/habilidades.js';
 import * as Itens from '../itens/itens.js';
 import * as TipoDeDano from '../combate/tipodeDano.js';
+import { printLento, esperar } from '../../input.js';
 
 export function atacar(atacante, alvo) {
     let dano = TipoDeDano.danoAleatorio(atacante.ataque);
@@ -24,25 +25,45 @@ export function atacar(atacante, alvo) {
 
 export function usarHabilidade(personagem, nomeHabilidade, alvo){
     const habilidade = Habilidades.buscarHabilidade(nomeHabilidade);
-    const temEnergia = Status.gastarEnergia(personagem, habilidade.custo);
+    
+    if (!habilidade) {
+        console.log(`A habilidade "${nomeHabilidade}" não foi encontrada!`);
+        return;
+    }
 
+    const temEnergia = Status.gastarEnergia(personagem, habilidade.custo);
     if (temEnergia === false) {
         return; 
     }
 
-    const danoReal = Status.tomarDano(alvo, habilidade.dano);
-    if (danoReal > 0){
-        console.log(`${personagem.nome} usou ${habilidade.nome} e causou ${danoReal} de dano em ${alvo.nome}!`);
+    let danoFinal = habilidade.dano;
+    let debuffDano = habilidade.debuff ? habilidade.debuff.danoPorTurno : 0;
+
+    if (habilidade.nome.toLowerCase() === 'ishin cut' && personagem.armaEquipada && personagem.armaEquipada.categoria === 'katana') {
+        await esperar(3000);
+        await printLento(`\n"Hesitation is defeat..."`);
+        await esperar(2000);
+        await printLento(`Ishin Cut foi fortalecido.`);
+        await esperar(3000);
+        
+        danoFinal += 10; 
+        debuffDano += 2; 
     }
+
+    const danoReal = Status.tomarDano(alvo, danoFinal);
+    
+    if (danoReal > 0){
+        console.log(`\n${personagem.nome} usou ${habilidade.nome} e causou ${danoReal} de dano em ${alvo.nome}!`);
+    }
+    
     if (habilidade.debuff) {
         const novoDebuff = {
-        nome: habilidade.debuff.nome,
-        danoPorTurno: habilidade.debuff.danoPorTurno,
-        duracao: habilidade.debuff.duracao
+            nome: habilidade.debuff.nome,
+            danoPorTurno: debuffDano,
+            duracao: habilidade.debuff.duracao
         };
-
-        alvo.debuffs.push(novoDebuff);
         
+        alvo.debuffs.push(novoDebuff);
         console.log(`${alvo.nome} sofreu o efeito colateral: ${novoDebuff.nome}!`);
     }
 }
