@@ -54,6 +54,11 @@ export async function executarCenaFloresta(cena, personagem) {
         await printLento(`Seus olhares se cruzam. O combate começou`);
         const maeCoelho = Status.criarPersonagem(`Mãe Coelho Azul`, 20, 0, 5, 2, 6, false);
         await Turno.iniciarCombate(personagem, maeCoelho);
+        await printLento(`Você começa a seguir o rastro da mão coelho, até achar um ninho`)
+        await lerInput(`[Enter para continuar]`)
+        await printLento(`Ao averiguar o ninho, você encontra um Bau com o cadeado destruido pelo coelho`)
+        await lerInput(`[Enter para continuar]`)
+        
         
 
         return 5;
