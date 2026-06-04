@@ -58,6 +58,13 @@ export async function executarCenaFloresta(cena, personagem) {
         await lerInput(`[Enter para continuar]`)
         await printLento(`Ao averiguar o ninho, você encontra um Bau com o cadeado destruido pelo coelho`)
         await lerInput(`[Enter para continuar]`)
+        await printLento(`você abre o bau e acha uma pedra com um brilho carmesim`)
+        const pedraVida = Itens.buscarIntem(`Health Stone`)
+        Status.pegarItem(personagem, pedraVida)
+        await printLento(`Você obteve um item: Health Stone!`)
+        await lerInput(`[Enter para continuar]`)
+        await printLento(``)
+        await lerInput(`[Enter para continuar]`)
         
         
 
