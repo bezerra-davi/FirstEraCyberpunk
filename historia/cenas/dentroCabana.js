@@ -110,7 +110,7 @@ export async function executarCenaDentroCabana(cena, personagem) {
             await lerInput(`[Enter para continuar]`);
             await printLento(`Ao abri-la você enxerga uma coisa`)
             await lerInput(`[Enter para continuar]`);
-            const itemCaixa = abrirBau(itens)
+            const itemCaixa = Itens.abrirBau(itens)
             Status.pegarItem(personagem, itemCaixa)
             await printLento(`Você obteve um item: ${itemCaixa}`)
             await lerInput(`[Enter para continuar]`);
