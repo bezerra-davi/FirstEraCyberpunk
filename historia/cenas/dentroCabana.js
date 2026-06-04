@@ -112,9 +112,9 @@ export async function executarCenaDentroCabana(cena, personagem) {
             await lerInput(`[Enter para continuar]`);
             const itemCaixa = Itens.abrirBau(itens)
             Status.pegarItem(personagem, itemCaixa)
-            await printLento(`Você obteve um item: ${itemCaixa}`)
+            await printLento(`Você obteve um item: ${itemCaixa.nome}`)
             await lerInput(`[Enter para continuar]`);
-            await printLento(`Ao pegar o item, você coloca a caixa de volta no mesmo local e guarda o ${itemCaixa}. Logo após isso, você vai dormir.`)
+            await printLento(`Ao pegar o item, você coloca a caixa de volta no mesmo local e guarda o ${itemCaixa.nome}. Logo após isso, você vai dormir.`)
             await lerInput(`[Enter para continuar]`);
             
             return 14;
