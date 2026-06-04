@@ -19,9 +19,24 @@ export function buscarHabilidade(nome) {
 }
 
 export function escolherHabilidades() {
-const tresHabilidades = [];
+    const tresHabilidades = [];
 
-while (tresHabilidades.length < 3) {
+    const habilidadesDisponiveis = habilidades.filter(function(habGlobal) {
+        
+        const jogadorJaPossui = personagem.habilidades.some(function(habPersonagem) {
+            return habPersonagem.nome === habGlobal.nome;
+        });
+
+        return !jogadorJaPossui;
+    });
+
+    if (habilidadesDisponiveis.length === 0) {
+        return []; 
+    }
+
+    const quantidadeSorteio = Math.min(3, habilidadesDisponiveis.length);
+
+    while (tresHabilidades.length < 3) {
             const indice = Math.floor(Math.random() * habilidades.length);
             const habilidade = habilidades[indice];
             

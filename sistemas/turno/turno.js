@@ -4,14 +4,28 @@ import * as Habilidades from '../habilidades/habilidades.js';
 import { lerInput } from '../../input.js';
 
 export async function recompensaHabilidade(personagem) {
-    const opcoes = Habilidades.escolherHabilidades();
+    const opcoes = Habilidades.escolherHabilidades(personagem); 
+
+    if (opcoes.length === 0) {
+        console.log(`Você não tem mais habilidades para aprender.`);
+        return; 
+    }
+
     console.log(`Escolha uma habilidade:`);
-    console.log(`1 - ${opcoes[0].nome}`);
-    console.log(`2 - ${opcoes[1].nome}`);
-    console.log(`3 - ${opcoes[2].nome}`);
-    const escolha = parseInt(await lerInput(`Digite 1, 2 ou 3:`));
-    Status.aprenderHabilidade(personagem, opcoes[escolha - 1]);
-    console.log(`${opcoes[escolha - 1].nome} aprendida.`);
+
+    for (let i = 0; i < opcoes.length; i++) {
+        console.log(`${i + 1} - ${opcoes[i].nome}`);
+    }
+    
+    const escolha = parseInt(await lerInput(`Digite o número (1 a ${opcoes.length}): `));
+    
+    if (escolha >= 1 && escolha <= opcoes.length) {
+        Status.aprenderHabilidade(personagem, opcoes[escolha - 1]);
+        console.log(`Você aprendeu a habilidade: ${opcoes[escolha - 1].nome}.`);
+    } else {
+        console.log(`Escolha inválida. Ajudei você a escolher, espero que goste da habilidade: ${opcoes[0].nome}.`);
+        Status.aprenderHabilidade(personagem, opcoes[0]);
+    }
 }
 
 export function quemAgePrimeiro(personagem1, personagem2){
