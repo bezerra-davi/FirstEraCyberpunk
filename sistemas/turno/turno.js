@@ -116,10 +116,10 @@ export async function executarTurno(atacante, alvo){
         }
     } else {
         if (atacante.proximaAcao === 1) {
-            console.log(`⚔️ ${atacante.nome} executa o ataque!`);
+            console.log(`${atacante.nome} executa um ataque!`);
             Acoes.atacar(atacante, alvo);
         } else {
-            console.log(`🛡️ ${atacante.nome} levanta sua guarda e se defende!`);
+            console.log(`${atacante.nome} levanta sua guarda e se defende!`);
             atacante.defendendo = true;
         }
     }
