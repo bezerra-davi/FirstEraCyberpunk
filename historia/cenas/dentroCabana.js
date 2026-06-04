@@ -98,8 +98,23 @@ export async function executarCenaDentroCabana(cena, personagem) {
             await lerInput(`[Enter para continuar]`);
             await printLento(`Você então decide não explorar mais nada e ficar na sua.`);
             await lerInput(`[Enter para continuar]`);
-            console.log(`Você entra em seu quarto designado e dorme.`)
+            console.log(`Você entra em seu quarto designado.`)
             await lerInput(`[Enter para continuar]`);
+            await printLento(`caminhando até a cama, você tropeça em uma tabua solta no chão`)
+            await lerInput(`[Enter para continuar]`);
+            await printLento(`Você solta um suspiro de dor e fica irritado, abaixando-se para encaixar a tabua no chão`)
+            await lerInput(`[Enter para continuar]`);
+            await printLento(`Chegando mais perto, você percebe uma caixa parcialmente enterrada. Você decide pegá-la e abri-la.`)
+            await lerInput(`[Enter para continuar]`);
+            await printLento(`Ao abri-la você enxerga uma coisa`)
+            await lerInput(`[Enter para continuar]`);
+            const itemCaixa = abrirBau(itens)
+            Status.pegarItem(personagem, itemCaixa)
+            await printLento(`Você obteve um item: ${itemCaixa}`)
+            await lerInput(`[Enter para continuar]`);
+            await printLento(`Ao pegar o item, você coloca a caixa de volta no mesmo local e guarda o ${itemCaixa}. Logo após isso, você vai dormir.`)
+            await lerInput(`[Enter para continuar]`);
+            
             return 14;
     }
 }
