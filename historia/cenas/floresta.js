@@ -63,7 +63,7 @@ export async function executarCenaFloresta(cena, personagem) {
         Status.pegarItem(personagem, pedraVida)
         await printLento(`Você obteve um item: Health Stone!`)
         await lerInput(`[Enter para continuar]`)
-        await printLento(``)
+        await printLento(`Você volta a explorar a floresta, sem rumo`)
         await lerInput(`[Enter para continuar]`)
         
         
