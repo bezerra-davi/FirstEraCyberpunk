@@ -1,9 +1,10 @@
 export const habilidades = [                      // basicamente todas as habilidades do jogo
-    {nome: `slash`, custo: 25, dano: 28},
-    {nome: `Ishin cut`, custo: 40, dano: 48},
-    {nome: `Smash`, custo: 45, dano: 52},
-    {nome: `Dash slash`, custo: 35, dano: 35},
-    {nome:, custo:, dano:}
+    {nome: `slash`, custo: 4, dano: 8},
+    {nome: `Ishin cut`, custo: 6, dano: 10},
+    {nome: `Smash`, custo: 2, dano: 4},
+    {nome: `Dash slash`, custo: 3, dano: 5},
+    {nome: `long cut`, custo: 10, dano: 14},
+    {nome: `rabbit kick`, custo: 1, dano: 2}
 ]
 
 export function buscarHabilidade(nome) {
