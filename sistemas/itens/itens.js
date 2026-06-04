@@ -14,7 +14,7 @@ export function buscarItem(nome) {
     }
 }
 
-export function abrirBau() {  // funcao para um sistema de abrir baus nas rotas
+export function abrirBau(itens) {  // funcao para um sistema de abrir baus nas rotas
   const indice = Math.floor(Math.random() * itens.length);
   const itemSorteado = itens[indice];
   console.log(`Você encontrou: ${itemSorteado.nome}!`);
