@@ -6,10 +6,11 @@ export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade,
         ataque, // numero
         defesa, // numero
         velocidade, // numero
+        jogador,
+        defendendo: false,  // estado de defesa
         habilidades: [], // sem habilidades
         itens: [],
-        jogador,
-        defendendo: false  // estado de defesa
+        debuffs: []
     };
 }
 
