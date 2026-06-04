@@ -2,7 +2,9 @@ export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade,
     return{
         nome, // string
         vida, // numero
+        vidaMaxima: vida,
         energia, // numero
+        energiaMaxima: energia,
         ataque, // numero
         defesa, // numero
         velocidade, // numero
@@ -37,7 +39,11 @@ export function tomarDano(personagem, dano){
 export function gastarEnergia(personagem, custo){
     if (personagem.energia >= custo){
         personagem.energia -= custo;
-    } // Adicionar se mana < custo não deixar ele castar
+        return true;
+    } else {
+        console.log(`${personagem.nome} não tem energia suficiente!`);
+        return false;
+    } 
 }
 
 export function estarVivo(personagem){
@@ -58,17 +64,29 @@ export function pegarItem(personagem, item) {
 
 export function curarVida(personagem, quantidade){
     personagem.vida += quantidade;
+    if (personagem.vida > personagem.vidaMaxima) {
+        personagem.vida = personagem.vidaMaxima;
+    }
 }
 
 export function curarEnergia(personagem, quantidade){
     personagem.energia += quantidade;
+    if (personagem.energia > personagem.energiaMaxima) {
+        personagem.energia = personagem.energiaMaxima;
+    }
 }
 
 export function mostrarStatus(personagem){
-                console.log(`STATUS:`);
-                console.log(`Vida: ${personagem.vida}`);
-                console.log(`Energia: ${personagem.energia}`);
-                console.log(`Ataque: ${personagem.ataque}`);
-                console.log(`Defesa: ${personagem.defesa}`);
-                console.log(`Velocidade: ${personagem.velocidade}`);
+    console.log(`STATUS:`);
+    console.log(`Vida: ${personagem.vida} / ${personagem.vidaMaxima}`);
+    console.log(`Energia: ${personagem.energia} / ${personagem.energiaMaxima}`);
+    console.log(`Ataque: ${personagem.ataque}`);
+    console.log(`Defesa: ${personagem.defesa}`);
+    console.log(`Velocidade: ${personagem.velocidade}`);
+}
+
+export function restaurarStatus(personagem) {
+    personagem.vida = personagem.vidaMaxima;
+    personagem.energia = personagem.energiaMaxima;
+    personagem.debuffs = [];
 }

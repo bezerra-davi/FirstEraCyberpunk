@@ -33,6 +33,7 @@ export function verificarFimCombate(personagem1, personagem2){
 }
 
 export async function executarTurno(atacante, alvo){
+    atacante.defendendo = false;
 
     if (atacante.debuffs && atacante.debuffs.length > 0) {
         for (let i = atacante.debuffs.length - 1; i >= 0; i--) {
@@ -53,14 +54,6 @@ export async function executarTurno(atacante, alvo){
         }
     }
 
-    const acaoInimigo = Math.floor(Math.random() * 2) + 1;
-    if (acaoInimigo === 1) {
-        console.log(`${alvo.nome} vai atacar!`);
-    } else {
-        console.log(`${alvo.nome} vai se defender!`);
-        atacante.defendendo = true;
-    }
-    
     if (atacante.jogador === true) {
         while(true) {
             console.log(`${atacante.nome}, o que você quer fazer?`);
@@ -106,6 +99,7 @@ export async function executarTurno(atacante, alvo){
                     
                     if (itemEscolhido) {
                         Acoes.usarItem(atacante, itemEscolhido.nome);
+                        atacante.itens.splice(escolhaItem - 1, 1);
                         break;
                     } else {
                         
@@ -121,8 +115,12 @@ export async function executarTurno(atacante, alvo){
             }
         }
     } else {
-        if (acaoInimigo === 1){
+        if (atacante.proximaAcao === 1) {
+            console.log(`⚔️ ${atacante.nome} executa o ataque!`);
             Acoes.atacar(atacante, alvo);
+        } else {
+            console.log(`🛡️ ${atacante.nome} levanta sua guarda e se defende!`);
+            atacante.defendendo = true;
         }
     }
 }
@@ -140,21 +138,30 @@ export async function iniciarCombate(personagem1, personagem2) {
     }
     while(true){
         contagemTurno++;
-        console.log(`Turno: ${contagemTurno}`);
-    await executarTurno(player, inimigo);
-    player.defendendo = false;
-    inimigo.defendendo = false;
-    if (verificarFimCombate(player, inimigo)){
-        console.log(`${inimigo.nome} foi derrotado!`);
-        break;
+        console.log(`\n--- TURNO: ${contagemTurno} ---`);
+
+        inimigo.proximaAcao = Math.floor(Math.random() * 2) + 1;
+        
+        if (inimigo.proximaAcao === 1) {
+            console.log(`${inimigo.nome} está se preparando para atacar!`);
+        } else {
+            console.log(`${inimigo.nome} assumiu uma postura de defesa!`);
+        }
+
+        // TURNO DO PLAYER
+        await executarTurno(player, inimigo);
+        if (verificarFimCombate(player, inimigo)){
+            console.log(`${inimigo.nome} foi derrotado!`);
+            break;
+        }
+        
+        // TURNO DO INIMIGO
+        await executarTurno(inimigo, player);
+        if (verificarFimCombate(player, inimigo)){
+            console.log(`${player.nome} foi derrotado!`);
+            break;
+        }
     }
-    await executarTurno(inimigo, player);
-    player.defendendo = false;
-    inimigo.defendendo = false;
-    if (verificarFimCombate(player, inimigo)){
-        console.log(`${player.nome} foi derrotado!`);
-        break;
-    }
-}
     await recompensaHabilidade(player);
+    Status.restaurarStatus(player);
 }

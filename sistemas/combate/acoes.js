@@ -24,7 +24,12 @@ export function atacar(atacante, alvo) {
 
 export function usarHabilidade(personagem, nomeHabilidade, alvo){
     const habilidade = Habilidades.buscarHabilidade(nomeHabilidade);
-    Status.gastarEnergia(personagem, habilidade.custo);
+    const temEnergia = Status.gastarEnergia(personagem, habilidade.custo);
+
+    if (temEnergia === false) {
+        return; 
+    }
+
     const danoReal = Status.tomarDano(alvo, habilidade.dano);
     if (danoReal > 0){
         console.log(`${personagem.nome} usou ${habilidade.nome} e causou ${danoReal} de dano em ${alvo.nome}!`);
@@ -35,7 +40,7 @@ export function usarHabilidade(personagem, nomeHabilidade, alvo){
         danoPorTurno: habilidade.debuff.danoPorTurno,
         duracao: habilidade.debuff.duracao
         };
-        
+
         alvo.debuffs.push(novoDebuff);
         
         console.log(`${alvo.nome} sofreu o efeito colateral: ${novoDebuff.nome}!`);
