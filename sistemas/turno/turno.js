@@ -79,11 +79,18 @@ export async function executarTurno(atacante, alvo){
                 } else {
                     console.log(`Habilidades disponíveis:`);
                     for (let i = 0; i < atacante.habilidades.length; i++){
-                        console.log(atacante.habilidades[i].nome);
+                        console.log(`${i + 1} - ${atacante.habilidades[i].nome}`);
                     }
-                    const nomeHabilidade = await lerInput(`Qual habilidade?`);
-                    Acoes.usarHabilidade(atacante, nomeHabilidade, alvo);
-                    break;
+                    
+                    const escolhaHab = parseInt(await lerInput(`Digite o número da habilidade:`));
+                    const habilidadeEscolhida = atacante.habilidades[escolhaHab - 1];
+                    
+                    if (habilidadeEscolhida) {
+                        Acoes.usarHabilidade(atacante, habilidadeEscolhida.nome, alvo);
+                        break;
+                    } else {
+                        console.log(`Você não tem uma habilidade na posição ${escolhaHab}. Tente novamente.`);
+                    }
                 }
             } else if (escolha === 3){
                 if (atacante.itens.length === 0){
@@ -91,11 +98,19 @@ export async function executarTurno(atacante, alvo){
                 } else {
                     console.log(`Itens disponíveis:`);
                     for (let i = 0; i < atacante.itens.length; i++){
-                        console.log(atacante.itens[i].nome);
+                        console.log(`${i + 1} - ${atacante.itens[i].nome}`);
                     }
-                    const nomeItem = await lerInput(`Qual item?`);
-                    Acoes.usarItem(atacante, nomeItem);
-                    break;
+                    
+                    const escolhaItem = parseInt(await lerInput(`Digite o número do item:`));
+                    const itemEscolhido = atacante.itens[escolhaItem - 1];
+                    
+                    if (itemEscolhido) {
+                        Acoes.usarItem(atacante, itemEscolhido.nome);
+                        break;
+                    } else {
+                        
+                        console.log(`Você não tem um item na posição ${escolhaItem}. Tente novamente.`);
+                    }
                 }
             } else if (escolha === 4){
                 atacante.defendendo = true;
