@@ -55,11 +55,12 @@ export async function executarTurno(atacante, alvo){
 
     const acaoInimigo = Math.floor(Math.random() * 2) + 1;
     if (acaoInimigo === 1) {
-        console.log(`${atacante.nome} vai atacar!`);
+        console.log(`${alvo.nome} vai atacar!`);
     } else {
-        console.log(`${atacante.nome} vai se defender!`);
+        console.log(`${alvo.nome} vai se defender!`);
         atacante.defendendo = true;
     }
+    
     if (atacante.jogador === true) {
         while(true) {
             console.log(`${atacante.nome}, o que você quer fazer?`);
