@@ -19,7 +19,7 @@ export async function executarCenaFloresta(cena, personagem) {
                 return 3;
             }
             else if (escolha === 3){
-                return 69;
+                return 4;
             }
             break;
 
