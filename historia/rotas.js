@@ -19,7 +19,7 @@ export async function iniciarJogo(personagem) {
       cenaAtual = await executarCenaSonho(cenaAtual, personagem);
     } else if (cenaAtual >= 15){
       cenaAtual = await executarCenaMasmorra(cenaAtual, personagem);
-    } 
+     
     } 
   }
   console.log(`Fim do demo!`);
