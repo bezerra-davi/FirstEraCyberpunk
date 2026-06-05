@@ -93,6 +93,10 @@ export async function executarCenaMasmorra(cena, personagem) {
         const escolha = parseInt(await lerInput(``));
 
         if (escolha === 1) {
+            return 17
+        }
+
+        case 17: 
             await esperar(500);
             await printLento(`Você corre, corre pelo corredor e você escuta o Pygma gritar por você...`);
             await esperar(1000);
@@ -232,11 +236,14 @@ export async function executarCenaMasmorra(cena, personagem) {
             }
 
             await printLento(`\nPygma cai no chão, ofegante, enquanto a floresta começa a desmoronar em pixels e fumaça ao redor de vocês...`);
-            
+            /////////////// aqui tinha uma chave ///////////////////////////////
             // continua para o final do jogo
             return null;
-            }
+            
         if (escolha === 2) {
+            return 18
+        }
+        case 18:
             await esperar(500);
             await printLento(`Você decide lutar...`);
             await esperar(800);
@@ -278,7 +285,7 @@ export async function executarCenaMasmorra(cena, personagem) {
         return null;        
         //const Pygma = Status.criarPersonagem(`Pygma`, vida, energia, ataque, defesa, velocidade, false);
         //await Turno.iniciarCombate(personagem, inimigo);
-    }
+    // aqui tinha uma chave ///////////////////////////////////////////////////////
         //Opções: (Aqui vai ter o timer dramático)
         
         //- Correr
