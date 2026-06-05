@@ -5,5 +5,7 @@ import * as Itens from '../../sistemas/itens/itens.js';
 import * as Habilidades from '../../sistemas/habilidades/habilidades.js';
 
 export async function executarCenaLutaFinal(cena, personagem){
-  
+  switch(cena) {
+      
+  }
 }
