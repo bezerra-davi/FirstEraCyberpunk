@@ -100,6 +100,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             for (let i = 0; i < 5; i++) {
             await printLento(`VOCÊ NÃO PODE SAIR`);
             await esperar(200);
+            return 69
         }
     
         await esperar(600);
