@@ -92,6 +92,139 @@ export async function executarCenaMasmorra(cena, personagem) {
         console.log(`2 - Lutar`);
         const escolha = parseInt(await lerInput(``));
 
+        if (escolha === 1) {
+            await esperar(500);
+            await printLento(`Você corre, corre pelo corredor e você escuta o Pygma gritar por você...`);
+            await esperar(1000);
+            await printLento(`Você corre, você está desesperado, o túnel não parece acabar . . .`);
+            await lerInput(`[Enter para continuar]`);
+            
+            await printLento(`Você para de escutar os gritos. Não é preciso mais correr.`);
+            await printLento(`O que se pode fazer agora?`);
+            await lerInput(`[Enter para continuar]`);
+            
+            await printLento(`Você caminha mais um pouco sobre o escuro daquelas masmorras...`);
+            await printLento(`Você não compreende ao certo o comportamento do Pygma, de alguma forma ele parece frustrado.`);
+            await printLento(`Talvez ele se sinta sozinho nesse local.`);
+            await esperar(1000);
+            await printLento(`. . .`);
+            await esperar(1000);
+            await lerInput(`[Enter para continuar]`);
+            
+            await printLento(`Você se lembra que é necessário perceber quando algo te faz bem ou te faz mal.`);
+            await printLento(`Essa situação não parece te fazer bem.`);
+            await esperar(1000);
+            await printLento(`. . .`);
+            await esperar(1000);
+            
+            await printLento(`Antes de ter pena dele, você precisa ter pena de si mesmo.`);
+            await lerInput(`[Enter para continuar]`);
+            
+            await printLento(`De repente, a masmorra pulsa. Os sentimentos de Pygma tomam formas físicas!`);
+            await printLento(`Como resolver? Como encarar?`);
+            await esperar(1000);
+            
+            await printLento(`Um espectro distorcido bloqueia o corredor.`);
+            const ecoSolidao = Status.criarPersonagem(`Eco da Solidão`, 30, 0, 6, 3, 12, false);
+            await Turno.iniciarCombate(personagem, ecoSolidao);
+            
+            if (!Status.estarVivo(personagem)) {
+                return;
+            }
+
+            await printLento(`\nA criatura se desfaz em fumaça, mas o túnel continua.`);
+            await printLento(`Você sente suas pernas pesarem, a energia do lugar suga sua esperança.`);
+            await lerInput(`[Enter para continuar]`);
+
+            console.log(`\n================================`);
+            await printLento(`As pedras vermelhas da parede se desprendem e formam um golem bizarro!`);
+            const pesoArrependimento = Status.criarPersonagem(`Peso do Arrependimento`, 80, 0, 8, 8, 2, false);
+            await Turno.iniciarCombate(personagem, pesoArrependimento);
+            
+            if (!Status.estarVivo(personagem)) {
+                return;
+            }
+
+            await printLento(`\nO golem desmorona.`);
+            await esperar(1000);
+            await printLento(`Você está exausto...`);
+            await esperar(1000);
+            await printLento(`...Mas a saída parece estar próxima.`);
+            await lerInput(`[Enter para continuar]`);
+            await printLento(`E as batalhas dramáticas? Você finalmente chega ao fundo da masmorra.`);
+            await esperar(1500);
+            
+            await printLento(`No fundo da masmorra você vê algo...`);
+            await lerInput(`[Enter para continuar]`);
+            
+            await printLento(`Um espelho feito de obsidiana negra. Porém, o reflexo nele não acompanha seus movimentos.`);
+            await esperar(1000);
+            await printLento(`"Você" sorri. Um sorriso apático, de quem aceitou a "floresta".`);
+            await lerInput(`[Enter para continuar]`);
+            
+            await printLento(`O espelho derrete, e a figura deforma até sair de lá e pisar no mesmo chão que você.`);
+            await printLento(`Ele sussurra com a sua voz:`);
+            await printLento(`Por que lutar? Pygma ja te disse: Aqui não precisamos nos preocupar com nada...`);
+            await esperar(1500);
+
+            await printLento(`A face da sua própria submissão avança contra você.`);
+            
+            // O clone copia os atributos base do herói.
+            const cloneHeroi = Status.criarPersonagem(`Reflexo de ${personagem.nome}`, personagem.vidaMaxima, 0, personagem.ataque, personagem.defesa, personagem.velocidade, false);
+            await Turno.iniciarCombate(personagem, cloneHeroi);
+            
+            if (!Status.estarVivo(personagem)) {
+                return;
+            }
+
+            await printLento(`\nO reflexo cai de joelhos e se desfaz em pó de vidro...`);
+            await printLento(`Atrás de onde o espelho estava, há uma pesada porta de madeira. Você a chuta com todas as suas forças!`);
+            await lerInput(`[Enter para continuar]`);
+            
+            
+            await printLento(`Você sente a brisa da floresta bater no seu rosto.`);
+            await printLento(`Mas algo está muito errado.`);
+            await lerInput(`[Enter para continuar]`);
+            
+            await printLento(`O céu não tem mais cor. As árvores estão secas, retorcidas, como se a vida tivesse sido sugada.`);
+            await printLento(`E a poucos metros da saída da masmorra, de costas para você, está ele.`);
+            await esperar(1500);
+            
+            await printLento(`Pygma: ...Eu construí este lugar.`);
+            await lerInput(`[Enter para continuar]`);
+            
+            await printLento(`Ele não está gritando. A voz dele agora é baixa, carregada de uma tristeza doentia.`);
+            await printLento(`Pygma: Mil anos. Sem dor, sem fome, sem sofrimento do mundo real.`);
+            await printLento(`Pygma: Tudo perfeitamente planejado nos meus livros. Uma eternidade pacífica.`);
+            await lerInput(`[Enter para continuar]`);
+            
+            await printLento(`Ele finalmente se vira. O rosto dele está contorcido em lágrimas e fúria absoluta.`);
+            await esperar(1000);
+            
+            await printLento(`Pygma: E VOCÊ QUER JOGAR TUDO ISSO FORA PARA VOLTAR PARA AQUELE INFERNO LÁ FORA?!`);
+            await lerInput(`[Enter para continuar]`);
+            
+            await printLento(`Pygma: POR QUE VOCÊ NÃO QUER FICAR COMIGO?!`);
+            await esperar(1500);
+            
+            await printLento(`A aura ao redor de Pygma distorce o próprio ar da floresta.`);
+            await printLento(`Não há mais diálogo. Não há mais como correr.`);
+            await printLento(`É lutar pela sua liberdade, ou ficar aqui para sempre.`);
+            await lerInput(`[Enter para continuar]`);
+            
+            const bossPygma = Status.criarPersonagem(`Pygma, o Prisioneiro Eterno`, 150, 0, 15, 8, 20, false);
+            await Turno.iniciarCombate(personagem, bossPygma);
+            
+            if (!Status.estarVivo(personagem)) {
+                await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
+                return;
+            }
+
+            await printLento(`\nPygma cai no chão, ofegante, enquanto a floresta começa a desmoronar em pixels e fumaça ao redor de vocês...`);
+            
+            // continua para o final do jogo
+            return null;
+            }
         if (escolha === 2) {
             await esperar(500);
             await printLento(`Você decide lutar...`);
