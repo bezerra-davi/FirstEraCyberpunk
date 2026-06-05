@@ -259,7 +259,7 @@ export async function executarCenaMasmorra(cena, personagem) {
         await Turno.iniciarCombate(personagem, pygma)
             
             if (!Status.estarVivo(personagem)) {
-                personagem.vida = 0
+                personagem.vida = personagem.vidaMaxima
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
                 await printLento(`${personagem.nome} foi derrotado por ${pygma.nome}`)
                 await lerInput(`[Enter para recomeçar]`)
