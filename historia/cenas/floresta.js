@@ -18,7 +18,7 @@ export async function executarCenaFloresta(cena, personagem) {
             return 3;
         }
         else if (escolha === 3){
-            return 4;
+            return 13;  // mudança para teste
         }
         case 2:
         await printLento(`Você encontrou um muro.`);
@@ -54,6 +54,18 @@ export async function executarCenaFloresta(cena, personagem) {
         await printLento(`Seus olhares se cruzam. O combate começou`);
         const maeCoelho = Status.criarPersonagem(`Mãe Coelho Azul`, 20, 0, 5, 2, 6, false);
         await Turno.iniciarCombate(personagem, maeCoelho);
+        await printLento(`Você começa a seguir o rastro da mão coelho, até achar um ninho`)
+        await lerInput(`[Enter para continuar]`)
+        await printLento(`Ao averiguar o ninho, você encontra um Bau com o cadeado destruido`)
+        await lerInput(`[Enter para continuar]`)
+        await printLento(`você abre o bau e acha uma pedra com um brilho carmesim`)
+        const pedraVida = Itens.buscarItem(`Health Stone`)
+        Status.pegarItem(personagem, pedraVida)
+        await printLento(`Você obteve um item: Health Stone!`)
+        await lerInput(`[Enter para continuar]`)
+        await printLento(`Você volta a explorar a floresta, sem rumo`)
+        await lerInput(`[Enter para continuar]`)
+        
         
 
         return 5;

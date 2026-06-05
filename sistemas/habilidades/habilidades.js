@@ -18,7 +18,7 @@ export function buscarHabilidade(nome) {
     }
 }
 
-export function escolherHabilidades() {
+export function escolherHabilidades(personagem) {
     const tresHabilidades = [];
 
     const habilidadesDisponiveis = habilidades.filter(function(habGlobal) {
