@@ -129,7 +129,10 @@ export async function executarCenaMasmorra(cena, personagem) {
             await Turno.iniciarCombate(personagem, ecoSolidao);
             
             if (!Status.estarVivo(personagem)) {
-                return;
+                await printLento(`${personagem.nome} foi derrotado por ${ecosolidao.nome}`)
+                await lerInput(`[Enter para recomeçar]`)
+                
+                return 1;
             }
 
             await printLento(`\nA criatura se desfaz em fumaça, mas o túnel continua.`);
@@ -141,7 +144,10 @@ export async function executarCenaMasmorra(cena, personagem) {
             await Turno.iniciarCombate(personagem, pesoArrependimento);
             
             if (!Status.estarVivo(personagem)) {
-                return;
+                await printLento(`${personagem.nome} foi derrotado por ${pesoArrependimento.nome}`)
+                await lerInput(`[Enter para recomeçar]`)
+                
+                return 1;
             }
 
             await printLento(`\nO golem desmorona.`);
@@ -173,7 +179,10 @@ export async function executarCenaMasmorra(cena, personagem) {
             await Turno.iniciarCombate(personagem, cloneHeroi);
             
             if (!Status.estarVivo(personagem)) {
-                return;
+                await printLento(`${personagem.nome} foi derrotado por ${cloneHeroi.nome}`)
+                await lerInput(`[Enter para recomeçar]`)
+                
+                return 1;
             }
 
             await printLento(`\nO reflexo cai de joelhos e se desfaz em pó de vidro...`);
@@ -216,7 +225,9 @@ export async function executarCenaMasmorra(cena, personagem) {
             
             if (!Status.estarVivo(personagem)) {
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
-                return;
+                await printLento(`${personagem.nome} foi derrotado por ${bossPygma.nome}`)
+                await lerInput(`[Enter para recomeçar]`)
+                return 1;
             }
 
             await printLento(`\nPygma cai no chão, ofegante, enquanto a floresta começa a desmoronar em pixels e fumaça ao redor de vocês...`);
@@ -243,12 +254,14 @@ export async function executarCenaMasmorra(cena, personagem) {
         await lerInput(`[Enter para continuar]`)
         await printLento(`Pygma começa a se contorcer. Seu corpo se retorce em uma transformação dolorosa, enquanto gritos de pura agonia ecoam por toda a masmorra... Quando tudo finalmente se acalma, Pygma já não é mais humano. Agora, transformado, ele é apenas um monstro que precisa ser derrotado.`)
         await lerInput(`[Enter para continuar]`)
-        const pygma = Status.criarPersonagem(`pygma`, 40, 30, 6, 4, 15, false)
+        const pygma = Status.criarPersonagem(`pygma, o prisioneiro eterno`, 100, 30, 6, 4, 15, false)
         await Turno.iniciarCombate(personagem, pygma)
             
             if (!Status.estarVivo(personagem)) {
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
-                return;
+                await printLento(`${personagem.nome} foi derrotado por ${ecosolidao.nome}`)
+                await lerInput(`[Enter para recomeçar]`)
+                return 1;
             }
             
         await printLento(`Após uma longa batalha, Pygma se encontra jogado em meio às pedras frias da masmorra.`);
