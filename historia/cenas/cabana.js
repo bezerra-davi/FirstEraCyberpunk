@@ -9,6 +9,34 @@ export async function executarCenaCabana(cena, personagem) {
       await lerInput(`[Enter para continuar]`);
       await printLento(`A fogueira é acesa, e você acha uma forma de assar corretamente a carne do coelho.`);
       await lerInput(`[Enter para continuar]`);
+
+      const indexCarneCrua = personagem.itens.findIndex(function(item) {
+          return item.nome === `Carne de Coelho`;
+      });
+      if (indexCarneCrua !== -1) {
+          personagem.itens.splice(indexCarneCrua, 1);
+      }
+
+      const carneAssada = Itens.buscarItem(`Carne de Coelho Azul Assada`);
+      Status.pegarItem(personagem, carneAssada);
+      
+      console.log(`1x Carne de Coelho foi removida da sua mochila.`);
+      await printLento(`1x Carne de Coelho Azul Assada foi adicionada à sua mochila.`);
+      await lerInput(`[Enter para saborear a refeição]`);
+
+      const indexCarneAssada = personagem.itens.findIndex(function(item) {
+          return item.nome === `Carne de Coelho Azul Assada`;
+      });
+      if (indexCarneAssada !== -1) {
+          personagem.itens.splice(indexCarneAssada, 1);
+      }
+
+      Status.restaurarStatus(personagem);
+
+      await printLento(`Ao saborear a carne suculenta e magicamente aquecida, um calor inexplicável corre pelas suas veias.`);
+      await printLento(`Sua exaustão desaparece, os machucados dos combates se fecham e suas energias são totalmente restauradas.`);
+      await lerInput(`[Enter para continuar]`);
+
       await printLento(`De repente...`);
       await lerInput(`[Enter para continuar]`);
       await printLento(`Estranho: Oiiiiii`);

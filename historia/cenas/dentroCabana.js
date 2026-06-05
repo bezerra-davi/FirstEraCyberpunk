@@ -43,12 +43,16 @@ export async function executarCenaDentroCabana(cena, personagem) {
             console.log(`2 - Olhar para o relógio`);
             console.log(`3 - Olhar o diário do Estranho`);
             const escolha = parseInt(await lerInput(``));
+            
             if (escolha === 1){
                 return 8; // estante
             } else if (escolha === 2){
                 return 9; // relogio
             } else if (escolha === 3){
                 return 10; // diario
+            } else {
+                await printLento(`Opção inválida. Escolha um número de 1 a 3.`);
+                return 7;
             }
         }
         
@@ -72,10 +76,14 @@ export async function executarCenaDentroCabana(cena, personagem) {
             console.log(`1 - Abrir na primeira página`);
             console.log(`2 - Abrir na última página`);
             const escolha = parseInt(await lerInput(``));
+            
             if (escolha === 1){
                 return 11; // primeira página
             } else if (escolha === 2){
                 return 12; // ultima página
+            } else {
+                await printLento(`Opção inválida. Escolha 1 ou 2.`);
+                return 10;
             }
         }
         case 11: // primeira página

@@ -1,6 +1,7 @@
 export const itens = [                      // basicamente todos os itens do jogo
     // consumiveis
     { nome: `Carne de Coelho`, tipo: `consumivel`, cura: 20, curaEnergia: 10 },
+    { nome: `Carne de Coelho Azul Assada`, tipo: `consumivel`, cura: 20, curaEnergia: 10 },
     {nome: `Health Stone`, tipo: `consumivel`, cura: 10, curaEnergia: 0},
     {nome: `Mel de Texturgo`, tipo: `consumivel`, cura: 8, curaEnergia: 10},
     {nome: `Bolt`, tipo: `consumivel`, cura: 0, curaEnergia: 20},

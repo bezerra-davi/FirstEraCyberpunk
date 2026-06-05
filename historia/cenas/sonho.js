@@ -62,6 +62,107 @@ export async function executarCenaSonho(cena, personagem) {
         console.log(``)
         console.log(`Você decide ir.`)
         console.log(``)
+        await lerInput(`[Enter para preparar seus equipamentos]`);
+
+        let preparando = true;
+        while (preparando) {
+            console.log(`\nMenu de Preparação:`);
+            console.log(`1 - Olhar Status Atual`);
+            console.log(`2 - Abrir Mochila de Equipamentos`);
+            console.log(`3 - Bolsa de Consumíveis`);
+            console.log(`4 - Confirmar e Entrar na Masmorra`);
+            
+            const opcaoPrep = parseInt(await lerInput(`Escolha uma ação: `));
+
+            if (opcaoPrep === 1) {
+                console.log(`\nSeus atributos atuais:`);
+                Status.mostrarStatus(personagem);
+                console.log(`Arma Equipada: ${personagem.armaEquipada ? personagem.armaEquipada.nome : 'Nenhuma'}`);
+                console.log(`Armadura Equipada: ${personagem.armaduraEquipada ? personagem.armaduraEquipada.nome : 'Nenhuma'}`);
+                await lerInput(`[Enter para voltar]`);
+            } 
+            
+            else if (opcaoPrep === 2) {
+                const equipamentos = personagem.itens.filter(function(item) {
+                    return item.tipo === 'arma' || item.tipo === 'armadura';
+                });
+
+                if (equipamentos.length === 0) {
+                    await printLento(`Você não possui armas ou armaduras para equipar na mochila.`);
+                } else {
+                    console.log(`\n-Equipamentos disponíveis:`);
+                    for (let i = 0; i < equipamentos.length; i++) {
+                        let detalhe = equipamentos[i].tipo === 'arma' 
+                            ? `Ataque +${equipamentos[i].bonusAtaque}` 
+                            : `Vida Max +${equipamentos[i].bonusVidaMaxima}, Defesa +${equipamentos[i].bonusDefesa}`;
+                        console.log(`${i + 1} - ${equipamentos[i].nome} [${detalhe}]`);
+                    }
+                    console.log(`0 - Voltar`);
+                    
+                    const escolhaEquip = parseInt(await lerInput(`Selecione o número do item para equipar: `));
+                    if (escolhaEquip > 0 && escolhaEquip <= equipamentos.length) {
+                        const itemEscolhido = equipamentos[escolhaEquip - 1];
+                        
+                        const idx = personagem.itens.findIndex(function(it) {
+                            return it.nome === itemEscolhido.nome;
+                        });
+                        if (idx !== -1) {
+                            personagem.itens.splice(idx, 1);
+                        }
+                        
+                        Status.equiparItem(personagem, itemEscolhido);
+                        await lerInput(`[Enter para continuar]`);
+                    }
+                }
+            } 
+            
+            else if (opcaoPrep === 3) {
+                const consumiveis = personagem.itens.filter(function(item) {
+                    return item.tipo === 'consumivel';
+                });
+
+                if (consumiveis.length === 0) {
+                    await printLento(`Você não tem nenhum consumível na mochila.`);
+                } else {
+                    console.log(`\nSeus consumíveis:`);
+                    for (let i = 0; i < consumiveis.length; i++) {
+                        console.log(`${i + 1} - ${consumiveis[i].nome} (Cura Vida: ${consumiveis[i].cura} | Cura Energia: ${consumiveis[i].curaEnergia})`);
+                    }
+                    console.log(`0 - Voltar`);
+                    
+                    const escolhaCons = parseInt(await lerInput(`Selecione o consumível para usar: `));
+                    if (escolhaCons > 0 && escolhaCons <= consumiveis.length) {
+                        const itemEscolhido = consumiveis[escolhaCons - 1];
+                        
+                        const idx = personagem.itens.findIndex(function(it) {
+                            return it.nome === itemEscolhido.nome;
+                        });
+                        if (idx !== -1) {
+                            personagem.itens.splice(idx, 1);
+                        }
+                        
+                        if (itemEscolhido.cura > 0) {
+                            Status.curarVida(personagem, itemEscolhido.cura);
+                        }
+                        if (itemEscolhido.curaEnergia > 0) {
+                            Status.curarEnergia(personagem, itemEscolhido.curaEnergia);
+                        }
+                        
+                        await printLento(`Você consumiu ${itemEscolhido.nome} com sucesso!`);
+                        await lerInput(`[Enter para continuar]`);
+                    }
+                }
+            } 
+            
+            else if (opcaoPrep === 4) {
+                preparando = false;
+            } 
+            
+            else {
+                console.log(`Opção inválida.`);
+            }
+        }
+
         return 15;
     }
 }
