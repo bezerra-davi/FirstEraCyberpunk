@@ -93,7 +93,7 @@ export async function executarTurno(atacante, alvo){
                     const habilidadeEscolhida = atacante.habilidades[escolhaHab - 1];
                     
                     if (habilidadeEscolhida) {
-                        Acoes.usarHabilidade(atacante, habilidadeEscolhida.nome, alvo);
+                        await Acoes.usarHabilidade(atacante, habilidadeEscolhida.nome, alvo);
                         break;
                     } else {
                         console.log(`Você não tem uma habilidade na posição ${escolhaHab}. Tente novamente.`);

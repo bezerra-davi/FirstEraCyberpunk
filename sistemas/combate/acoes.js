@@ -23,7 +23,7 @@ export function atacar(atacante, alvo) {
 //    }
 //}
 
-export function usarHabilidade(personagem, nomeHabilidade, alvo){
+export async function usarHabilidade(personagem, nomeHabilidade, alvo){
     const habilidade = Habilidades.buscarHabilidade(nomeHabilidade);
     
     if (!habilidade) {
