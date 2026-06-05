@@ -4,7 +4,7 @@ import { executarCenaDentroCabana } from './cenas/dentroCabana.js';
 import { executarCenaSonho } from './cenas/sonho.js';
 import { executarCenaMasmorra } from './cenas/masmorra.js';
 import { fecharInput } from '../input.js';
-import { executarCenaLutaFinal} from '../cenas/lutaFinal.js';
+
 
 export async function iniciarJogo(personagem) {
   let cenaAtual = 1;
@@ -17,10 +17,9 @@ export async function iniciarJogo(personagem) {
       cenaAtual = await executarCenaDentroCabana(cenaAtual, personagem);
     } else if (cenaAtual >= 14 && cenaAtual < 15 ){
       cenaAtual = await executarCenaSonho(cenaAtual, personagem);
-    } else if (cenaAtual >= 15 && cenaAtual < 17){
+    } else if (cenaAtual >= 15){
       cenaAtual = await executarCenaMasmorra(cenaAtual, personagem);
-    } else if (cenaAtual >= 69) {
-      cenaAtual = await executarCenaLutaFinal(cenaAtual, personagem);
+    } 
     } 
   }
   console.log(`Fim do demo!`);
