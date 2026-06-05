@@ -41,7 +41,7 @@ export async function usarHabilidade(personagem, nomeHabilidade, alvo){
 
     if (habilidade.nome.toLowerCase() === 'ishin cut' && personagem.armaEquipada && personagem.armaEquipada.categoria === 'katana') {
         await esperar(3000);
-        await printLento(`\n"Hesitation is defeat..."`);
+        await printLento(`\n "Hesitation is defeat..."`);
         await esperar(2000);
         await printLento(`Ishin Cut foi fortalecido.`);
         await esperar(3000);
