@@ -1,4 +1,7 @@
 import { lerInput, printLento } from '../../input.js';
+import * as Turno from '../../sistemas/turno/turno.js';
+import * as Status from '../../sistemas/personagem/status.js';
+import * as Itens from '../../sistemas/itens/itens.js';
 
 export async function executarCenaSonho(cena, personagem) {
     switch(cena) {
@@ -12,6 +15,34 @@ export async function executarCenaSonho(cena, personagem) {
         await printLento(`Para você ficar.`);
         await lerInput(`[Enter para continuar]`);
         await printLento(`Você decide correr e o tunel parece não acabar . . .`);
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`Você não enxerga o fim e nem o começo`)
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`Mas uma presença coemça a aparecer em seu caminho`)
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`Uma criatura repleta de sombras, com uma forma de chacal`)
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`Você percebe a intenção hostil da criatura`)
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`As vozes começam a aumentar e sua frequência começa a pertubar o Herói`)
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`A criatura avança em sua direção, você entra em postura de batalha`)
+        const chacal = Status.criarPersonagem(`Chacal, O Principe dos Sonhos`, 40, 25, 9, 5, 8, false)
+        await Turno.iniciarCombate(personagem, chacal)
+
+        if (!Status.estarVivo(personagem)) {
+            await printLento(`Você foi derrotado por ${chacal.nome}`)
+            await lerInput(`[Enter para recomeçar]`)
+            return 1;
+        }
+        
+        await printLento(`${chacal.nome} começa a desaparecer nas sombras`)
+        await lerInput(`[Enter para continuar]`)
+        await printLento(`As vozes começam a aumentar, um timbre extremamente agudo começa a surgir `)
+        await lerInput(`[Enter para continuar]`)
+        await printLento(`As vozes fazem você sentir como se sua cabeça fosse explodir`)
+        await lerInput(`[Enter para continuar]`)
+        await printLento(`Até que...`)
         await lerInput(`[Enter para continuar]`);
         await printLento(`Você acordou.`);
         await lerInput(`[Enter para continuar]`);
