@@ -129,7 +129,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await Turno.iniciarCombate(personagem, ecoSolidao);
             
             if (!Status.estarVivo(personagem)) {
-                await printLento(`${personagem.nome} foi derrotado por ${ecosolidao.nome}`)
+                await printLento(`${personagem.nome} foi derrotado por ${ecoSolidao.nome}`)
                 await lerInput(`[Enter para recomeçar]`)
                 
                 return 1;
@@ -259,7 +259,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             
             if (!Status.estarVivo(personagem)) {
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
-                await printLento(`${personagem.nome} foi derrotado por ${ecosolidao.nome}`)
+                await printLento(`${personagem.nome} foi derrotado por ${pygma.nome}`)
                 await lerInput(`[Enter para recomeçar]`)
                 return 1;
             }
