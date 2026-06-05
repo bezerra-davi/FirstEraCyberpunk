@@ -7,6 +7,10 @@ import * as Habilidades from '../../sistemas/habilidades/habilidades.js';
 export async function executarCenaLutaFinal(cena, personagem){
   switch(cena) {
     case 70: 
-      
+    printLento(`${Status.personagem.nome} e Pygma se encaram, talvez, por uma ultima vez...`)
+    lerInput(`[Enter para continuar]`)
+    printLento(`Pygma começa a se contorcer. Seu corpo se retorce em uma transformação dolorosa, enquanto gritos de pura agonia ecoam por toda a masmorra... Quando tudo finalmente se acalma, Pygma já não é mais humano. Agora, transformado, ele é apenas um monstro que precisa ser derrotado.`)
+    lerInput(`[Enter para continuar]`)
+    const pygma = 
   }
 }
