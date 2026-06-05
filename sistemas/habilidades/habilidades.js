@@ -36,11 +36,11 @@ export function escolherHabilidades(personagem) {
 
     const quantidadeSorteio = Math.min(3, habilidadesDisponiveis.length);
 
-    while (tresHabilidades.length < 3) {
-            const indice = Math.floor(Math.random() * habilidades.length);
-            const habilidade = habilidades[indice];
+    while (tresHabilidades.length < quantidadeSorteio) {
+        const indice = Math.floor(Math.random() * habilidadesDisponiveis.length);
+        const habilidade = habilidadesDisponiveis[indice];
             
-            if (!tresHabilidades.includes(habilidade)) {  //Esse includes vai verificar as habilidades, pra nao sortear a msm varias vezes
+        if (!tresHabilidades.includes(habilidade)) {  
             tresHabilidades.push(habilidade);
         }
     }
