@@ -11,6 +11,7 @@ export async function executarCenaLutaFinal(cena, personagem){
     lerInput(`[Enter para continuar]`)
     printLento(`Pygma começa a se contorcer. Seu corpo se retorce em uma transformação dolorosa, enquanto gritos de pura agonia ecoam por toda a masmorra... Quando tudo finalmente se acalma, Pygma já não é mais humano. Agora, transformado, ele é apenas um monstro que precisa ser derrotado.`)
     lerInput(`[Enter para continuar]`)
-    const pygma = 
+    const pygma = Status.criarPersonagem(`pygma`, 40, 30, 6, 4, 15, false)
+    await Turno.iniciarCombate(personagem, inimigo)
   }
 }
