@@ -136,8 +136,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await printLento(`Você sente suas pernas pesarem, a energia do lugar suga sua esperança.`);
             await lerInput(`[Enter para continuar]`);
 
-            console.log(`\n================================`);
-            await printLento(`As pedras vermelhas da parede se desprendem e formam um golem bizarro!`);
+            await printLento(`As pedras vermelhas da parede se desprendem e formam um golem bizarro.`);
             const pesoArrependimento = Status.criarPersonagem(`Peso do Arrependimento`, 80, 0, 8, 8, 2, false);
             await Turno.iniciarCombate(personagem, pesoArrependimento);
             
