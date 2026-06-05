@@ -259,7 +259,8 @@ export async function executarCenaMasmorra(cena, personagem) {
         await lerInput(`[Enter para continuar]`);
         await printLento(`Pygma fecha os olhos e morre no silêncio pós-batalha.`);
         await lerInput(`[Enter para continuar]`);
-        
+
+        return null;        
         //const Pygma = Status.criarPersonagem(`Pygma`, vida, energia, ataque, defesa, velocidade, false);
         //await Turno.iniciarCombate(personagem, inimigo);
     }
