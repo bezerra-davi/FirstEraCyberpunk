@@ -6,6 +6,7 @@ import * as Habilidades from '../../sistemas/habilidades/habilidades.js';
 
 export async function executarCenaLutaFinal(cena, personagem){
   switch(cena) {
+    case 70: 
       
   }
 }
