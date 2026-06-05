@@ -18,7 +18,7 @@ export async function executarCenaFloresta(cena, personagem) {
             return 3;
         }
         else if (escolha === 3){
-            return 13;  // mudança para teste
+            return 4;  // mudança para teste
         }
         case 2:
         await printLento(`Você encontrou um muro.`);
