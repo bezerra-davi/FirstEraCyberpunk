@@ -107,23 +107,9 @@ git pull
 
 * Esse projeto foi desenvolvido por estudantes da Universidade de Fortaleza(UNIFOR) como parte de um projeto acadêmico
 
+### //////////////////////////////////////////////////////////////////
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# WINDOWS
+# Como Executar no WINDOWS
 
 ### Como executar
 
