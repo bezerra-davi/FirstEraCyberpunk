@@ -1,7 +1,7 @@
 export const habilidades = [                      // basicamente todas as habilidades do jogo
     {nome: `slash`, custo: 4, dano: 8},
     {
-        nome: `Ishin cut`, custo: 7, dano: 7,
+        nome: `Ishin cut`, custo: 7, dano:7,
         debuff: { nome: "Sangramento", danoPorTurno: 3, duracao: 2 }
     },
     {nome: `Smash`, custo: 2, dano: 4},
