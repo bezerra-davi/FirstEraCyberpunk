@@ -144,7 +144,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await Turno.iniciarCombate(personagem, ecoSolidao);
             
             if (!Status.estarVivo(personagem)) {
-                return 1;
+                return null;
             }
 
             await printLento(`\nA criatura se desfaz em fumaça, mas o túnel continua.`);
@@ -156,7 +156,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await Turno.iniciarCombate(personagem, pesoArrependimento);
             
             if (!Status.estarVivo(personagem)) {
-                return 1;
+                return null;
             }
 
             await printLento(`\nO golem desmorona.`);
@@ -188,7 +188,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await Turno.iniciarCombate(personagem, cloneHeroi);
             
             if (!Status.estarVivo(personagem)) {
-                return 1;
+                return null;
             }
 
             await printLento(`\nO reflexo cai de joelhos e se desfaz em pó de vidro...`);
@@ -231,7 +231,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             
             if (!Status.estarVivo(personagem)) {
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
-                return 1;
+                return null;
             }
 
             await printLento(`\nPygma cai no chão, ofegante, enquanto a floresta começa a desmoronar em pixels e fumaça ao redor de vocês...`);
