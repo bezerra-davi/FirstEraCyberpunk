@@ -44,6 +44,29 @@ export async function executarCenaSonho(cena, personagem) {
         await printLento(`As vozes fazem você sentir como se sua cabeça fosse explodir`)
         await lerInput(`[Enter para continuar]`)
         await printLento(`Até que...`)
+        await printLento(`Você vê duas coisas onde o corpo do Chacal desapareceu`)
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`Um dente e um olho...`)
+        await lerInput(`[Enter para continuar]`)
+        console.log(`1 - Olho de Chacal`)
+        console.log(`2 - Dente de Chacal`)
+        const opcao = parseInt(await lerInput(`Escolha o item: `))
+
+        if(opcao === 1){
+            const olhoChacal = Itens.buscarItemExclusivo(`Olho do Chacal`)
+            Status.pegarItens(personagem, olhoChacal)
+            await printLento(`Você obteve o olho do Chacal`)
+            await lerInput(`[Enter para continuar]`)
+
+        } else if(opcao === 2) {
+            const denteChacal = Itens.buscarItemExclusivo(`Dente do Chacal`)
+            Status.pegarItens(personagem, denteChacal)
+            await printLento(`Você obteve o Dente do Chacal`)
+            await lerInput(`[Enter para continuar]`)
+
+        }
+
+        await printLento(`Após esse evento, sua consciência começa a se esvair`)
         await lerInput(`[Enter para continuar]`);
         await printLento(`Você acordou.`);
         await lerInput(`[Enter para continuar]`);
