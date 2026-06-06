@@ -141,7 +141,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await esperar(1000);
             
             await printLento(`Um espectro distorcido bloqueia o corredor.`);
-            const ecoSolidao = Status.criarPersonagem(`Eco da Solidão`, 32, 0, 2000, 7, 14, false);
+            const ecoSolidao = Status.criarPersonagem(`Eco da Solidão`, 32, 0, 10, 7, 14, false);
             vitoria =await Turno.iniciarCombate(personagem, ecoSolidao);
             
             if (!vitoria) {
