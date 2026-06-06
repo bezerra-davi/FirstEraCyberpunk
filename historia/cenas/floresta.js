@@ -84,7 +84,7 @@ export async function executarCenaFloresta(cena, personagem) {
                     await lerInput(`[Enter para lutar por sua vida]`);
                     
                     
-                    const espiritoSamurai = Status.criarPersonagem(`Espírito do Espadachim`, 18, 0, 4, 2, 10, false);
+                    const espiritoSamurai = Status.criarPersonagem(`Espírito do Espadachim`, 2000, 0, 2000, 2, 10, false);
                     vitoria = await Turno.iniciarCombate(personagem, espiritoSamurai);
                     
                     if (!vitoria) {
