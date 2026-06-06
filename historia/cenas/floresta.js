@@ -119,11 +119,11 @@ export async function executarCenaFloresta(cena, personagem) {
             await printLento(`De repente você encontra um coelho azul e você fica surpreso com a tamanha conveniência.`);
             await lerInput(`[Enter para continuar]`);
             
-            const coelho = Status.criarPersonagem(`Coelho Azul`, 2000, 0, 2000, 2000, 3, false);
+            const coelho = Status.criarPersonagem(`Turno.js`, 2000, 2000, 2000, 2000, 2000, false);
             vitoria = await Turno.iniciarCombate(personagem, coelho);
 
             if (!vitoria) {
-                await printLento(`Você subestimou a floresta. O que parecia uma criatura inofensiva avança com uma ferocidade irracional. Sua visão escurece no chão frio, enquanto o pequeno animal volta a saltar calmamente sobre o seu corpo...`);
+                await printLento(`É MARCO, TURNO.JS É IMORTAL, PERDE AI SEU ÓTARIO!`);
                 await lerInput(`[Enter para continuar]`);
                 return null; 
             }
