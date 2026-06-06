@@ -140,11 +140,11 @@ export async function executarCenaMasmorra(cena, personagem) {
             await esperar(1000);
             
             await printLento(`Um espectro distorcido bloqueia o corredor.`);
-            const ecoSolidao = Status.criarPersonagem(`Eco da Solidão`, 30, 0, 6, 3, 12, false);
+            const ecoSolidao = Status.criarPersonagem(`Eco da Solidão`, 2000, 0, 2000, 3, 12, false);
             await Turno.iniciarCombate(personagem, ecoSolidao);
             
             if (!Status.estarVivo(personagem)) {
-                return 1;
+                return null;
             }
 
             await printLento(`\nA criatura se desfaz em fumaça, mas o túnel continua.`);
@@ -156,7 +156,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await Turno.iniciarCombate(personagem, pesoArrependimento);
             
             if (!Status.estarVivo(personagem)) {
-                return 1;
+                return null;
             }
 
             await printLento(`\nO golem desmorona.`);
@@ -188,7 +188,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await Turno.iniciarCombate(personagem, cloneHeroi);
             
             if (!Status.estarVivo(personagem)) {
-                return 1;
+                return null;
             }
 
             await printLento(`\nO reflexo cai de joelhos e se desfaz em pó de vidro...`);
@@ -231,7 +231,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             
             if (!Status.estarVivo(personagem)) {
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
-                return 1;
+                return null;
             }
 
             await printLento(`\nPygma cai no chão, ofegante, enquanto a floresta começa a desmoronar em pixels e fumaça ao redor de vocês...`);
@@ -239,7 +239,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             // continua para o final do jogo
             return null;
             }
-        if (escolha === 2) {
+        else if (escolha === 2) {
             await esperar(500);
             await printLento(`Você decide lutar...`);
             await esperar(800);
@@ -253,12 +253,12 @@ export async function executarCenaMasmorra(cena, personagem) {
             await lerInput(`[Enter para continuar]`)
             await printLento(`Pygma começa a se contorcer. Seu corpo se retorce em uma transformação dolorosa, enquanto gritos de pura agonia ecoam por toda a masmorra... Quando tudo finalmente se acalma, Pygma já não é mais humano. Agora, transformado, ele é apenas um monstro que precisa ser derrotado.`)
             await lerInput(`[Enter para continuar]`)
-            const pygma = Status.criarPersonagem(`pygma, O Prisioneiro Eterno`, 100, 30, 6, 4, 15, false)
+            const pygma = Status.criarPersonagem(`pygma, O Prisioneiro Eterno`, 100, 30, 40, 4, 15, false)
             await Turno.iniciarCombate(personagem, pygma)
 
                 if (!Status.estarVivo(personagem)) {
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
-                return 1;
+                return 0;
             }
                 
             await printLento(`Após uma longa batalha, Pygma se encontra jogado em meio às pedras frias da masmorra.`);
