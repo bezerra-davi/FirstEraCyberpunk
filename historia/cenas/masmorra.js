@@ -253,12 +253,12 @@ export async function executarCenaMasmorra(cena, personagem) {
             await lerInput(`[Enter para continuar]`)
             await printLento(`Pygma começa a se contorcer. Seu corpo se retorce em uma transformação dolorosa, enquanto gritos de pura agonia ecoam por toda a masmorra... Quando tudo finalmente se acalma, Pygma já não é mais humano. Agora, transformado, ele é apenas um monstro que precisa ser derrotado.`)
             await lerInput(`[Enter para continuar]`)
-            const pygma = Status.criarPersonagem(`pygma, O Prisioneiro Eterno`, 100, 30, 6, 4, 15, false)
+            const pygma = Status.criarPersonagem(`pygma, O Prisioneiro Eterno`, 100, 30, 40, 4, 15, false)
             await Turno.iniciarCombate(personagem, pygma)
 
                 if (!Status.estarVivo(personagem)) {
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
-                return 1;
+                return 0;
             }
                 
             await printLento(`Após uma longa batalha, Pygma se encontra jogado em meio às pedras frias da masmorra.`);
