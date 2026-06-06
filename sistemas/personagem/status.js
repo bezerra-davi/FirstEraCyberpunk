@@ -23,7 +23,7 @@ export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade,
 
 export function tomarDano(personagem, dano){
     if (personagem.defendendo === true){
-    let danoDefendido = Math.floor(Math.random() * (dano - 1) + 1;
+    let danoDefendido = Math.floor(Math.random() * (dano - 1)) + 1;
     dano = dano - danoDefendido;
     if (dano < 0){
     dano = 0;
