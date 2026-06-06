@@ -94,6 +94,10 @@ export function restaurarStatus(personagem) {
 }
 
 export function equiparItem(personagem, equipamento) {
+    const indexItem = personagem.itens.indexOf(equipamento);
+    if (indexItem > -1) {
+        personagem.itens.splice(indexItem, 1);
+    }
     if (equipamento.tipo === `arma`) {
         if (personagem.armaEquipada !== null) {
             personagem.ataque -= personagem.armaEquipada.bonusAtaque;
@@ -122,7 +126,6 @@ export function equiparItem(personagem, equipamento) {
         personagem.armaduraEquipada = equipamento;
         personagem.vidaMaxima += equipamento.bonusVidaMaxima;
         personagem.defesa += equipamento.bonusDefesa;
-        personagem.vida += equipamento.bonusVidaMaxima; 
         
         console.log(`Você vestiu ${equipamento.nome}. Vida máxima subiu para ${personagem.vidaMaxima} e defesa para ${personagem.defesa}.`);
     }
