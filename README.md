@@ -51,8 +51,9 @@ O sistema de combate utiliza os seguintes atributos:
 ## Inimigos
 
 * Espírito do Espadachim
+* Coelho Azul
 * Mãe Coelho Azul
-* Chacal, o Príncipe dos Sonhos
+* Chacal, O Príncipe dos Sonhos
 * Eco da Solidão
 * Peso do Arrependimento
 * Reflexo do Herói
