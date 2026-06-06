@@ -239,7 +239,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             // continua para o final do jogo
             return null;
             }
-        if (escolha === 2) {
+        else if (escolha === 2) {
             await esperar(500);
             await printLento(`Você decide lutar...`);
             await esperar(800);
