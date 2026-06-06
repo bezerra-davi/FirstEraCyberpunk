@@ -50,6 +50,28 @@ export async function usarHabilidade(personagem, nomeHabilidade, alvo){
         debuffDano += 2; 
     }
 
+    if (personagem.armaEquipada && personagem.armaEquipada.nome === 'Olho do Chacal') {
+        await esperar(2000);
+        await printLento(`\n "Seus olhos, começam a mudar de cor para uma tonalidade carmesim, e as sombras começam a surgir em sua volta..."`);
+        await esperar(1000);
+        await printLento(`Transformação concluída`);
+        await esperar(1000);
+        
+        
+         
+    }
+
+    if (personagem.armaEquipada && personagem.armaEquipada.nome === 'Dente do Chacal') {
+        await esperar(2000);
+        await printLento(`\n "Presas ancestrais surgem, seus instintos começam a se aprimorar, a vontade de caçar aumenta..."`);
+        await esperar(1000);
+        await printLento(`Transformação concluída, seus instintos foram despertados`);
+        await esperar(1000);
+        
+        
+         
+    }
+
     const danoReal = Status.tomarDano(alvo, danoFinal);
     
     if (danoReal > 0){

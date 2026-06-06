@@ -19,16 +19,16 @@ export async function executarCenaSonho(cena, personagem) {
         await lerInput(`[Enter para continuar]`);
         await printLento(`Você não enxerga o fim e nem o começo`)
         await lerInput(`[Enter para continuar]`);
-        await printLento(`Mas uma presença coemça a aparecer em seu caminho`)
+        await printLento(`Mas uma presença começa a aparecer em seu caminho`)
         await lerInput(`[Enter para continuar]`);
-        await printLento(`Uma criatura repleta de sombras, com uma forma de chacal`)
+        await printLento(`Uma criatura repleta de sombras, com forma de chacal`)
         await lerInput(`[Enter para continuar]`);
         await printLento(`Você percebe a intenção hostil da criatura`)
         await lerInput(`[Enter para continuar]`);
         await printLento(`As vozes começam a aumentar e sua frequência começa a pertubar o Herói`)
         await lerInput(`[Enter para continuar]`);
         await printLento(`A criatura avança em sua direção, você entra em postura de batalha`)
-        const chacal = Status.criarPersonagem(`Chacal, O Principe dos Sonhos`, 40, 25, 9, 5, 8, false)
+        const chacal = Status.criarPersonagem(`Chacal, O Principe dos Sonhos`, 2, 25, 9, 0, 8, false)
         vitoria = await Turno.iniciarCombate(personagem, chacal)
 
         if (!vitoria) {
@@ -44,6 +44,29 @@ export async function executarCenaSonho(cena, personagem) {
         await printLento(`As vozes fazem você sentir como se sua cabeça fosse explodir`)
         await lerInput(`[Enter para continuar]`)
         await printLento(`Até que...`)
+        await printLento(`Você vê duas coisas onde o corpo do Chacal desapareceu`)
+        await lerInput(`[Enter para continuar]`);
+        await printLento(`Um dente e um olho...`)
+        await lerInput(`[Enter para continuar]`)
+        console.log(`1 - Olho de Chacal`)
+        console.log(`2 - Dente de Chacal`)
+        const opcao = parseInt(await lerInput(`Escolha o item: `))
+
+        if(opcao === 1){
+            const olhoChacal = Itens.buscarItemExclusivo(`Olho do Chacal`)
+            Status.pegarItem(personagem, olhoChacal)
+            await printLento(`Você obteve o olho do Chacal`)
+            await lerInput(`[Enter para continuar]`)
+
+        } else if(opcao === 2) {
+            const denteChacal = Itens.buscarItemExclusivo(`Dente do Chacal`)
+            Status.pegarItem(personagem, denteChacal)
+            await printLento(`Você obteve o Dente do Chacal`)
+            await lerInput(`[Enter para continuar]`)
+
+        }
+
+        await printLento(`Após esse evento, sua consciência começa a se esvair`)
         await lerInput(`[Enter para continuar]`);
         await printLento(`Você acordou.`);
         await lerInput(`[Enter para continuar]`);
