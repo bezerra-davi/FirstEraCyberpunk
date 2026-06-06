@@ -14,7 +14,8 @@ export function criarPersonagem(nome, vida, energia, ataque, defesa, velocidade,
         itens: [],
         debuffs: [],
         armaEquipada: null,
-        armaduraEquipada: null
+        armaduraEquipada: null,
+        textosLidos: {}
     };
 }
 

@@ -39,37 +39,46 @@ export async function usarHabilidade(personagem, nomeHabilidade, alvo){
     let danoFinal = habilidade.dano;
     let debuffDano = habilidade.debuff ? habilidade.debuff.danoPorTurno : 0;
 
+    // --- ISHIN CUT ---
     if (habilidade.nome.toLowerCase() === 'ishin cut' && personagem.armaEquipada && personagem.armaEquipada.categoria === 'katana') {
-        await esperar(2000);
-        await printLento(`\n "Hesitation is defeat..."`);
-        await esperar(1000);
-        await printLento(`Ishin Cut foi fortalecido.`);
-        await esperar(1000);
+        
+        if (!personagem.textosLidos.ishinCut) { 
+            await esperar(2000);
+            await printLento(`\n "Hesitation is defeat..."`);
+            await esperar(1000);
+            await printLento(`Ishin Cut foi fortalecido.`);
+            await esperar(1000);
+            
+            personagem.textosLidos.ishinCut = true; 
+        }
         
         danoFinal += 10; 
         debuffDano += 2; 
     }
 
+    // --- OLHO DO CHACAL ---
     if (personagem.armaEquipada && personagem.armaEquipada.nome === 'Olho do Chacal') {
-        await esperar(2000);
-        await printLento(`\n "Seus olhos, começam a mudar de cor para uma tonalidade carmesim, e as sombras começam a surgir em sua volta..."`);
-        await esperar(1000);
-        await printLento(`Transformação concluída`);
-        await esperar(1000);
-        
-        
-         
+        if (!personagem.textosLidos.olhoChacal) {
+            await esperar(2000);
+            await printLento(`\n "Seus olhos começam a mudar de cor para uma tonalidade carmesim, e as sombras começam a surgir em sua volta..."`);
+            await esperar(1000);
+            await printLento(`Transformação concluída.`);
+            await esperar(1000);
+            personagem.textosLidos.olhoChacal = true;
+        }
     }
 
     if (personagem.armaEquipada && personagem.armaEquipada.nome === 'Dente do Chacal') {
-        await esperar(2000);
-        await printLento(`\n "Presas ancestrais surgem, seus instintos começam a se aprimorar, a vontade de caçar aumenta..."`);
-        await esperar(1000);
-        await printLento(`Transformação concluída, seus instintos foram despertados`);
-        await esperar(1000);
-        
-        
-         
+        if (!personagem.textosLidos.denteChacal) {
+            await esperar(2000);
+            await printLento(`\n "Presas ancestrais surgem, seus instintos começam a se aprimorar, a vontade de caçar aumenta..."`);
+            await esperar(1000);
+            await printLento(`Transformação concluída.`);
+            await esperar(1000);
+            await printLento(`Seus instintos foram despertados...`);
+            await esperar(1000);
+            personagem.textosLidos.denteChacal = true;
+        }
     }
 
     const danoReal = Status.tomarDano(alvo, danoFinal);
