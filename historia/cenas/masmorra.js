@@ -32,9 +32,19 @@ export async function executarCenaMasmorra(cena, personagem) {
         await printLento(`Você não inspecionou o conteúdo dos livros.`);
         await lerInput(`[Enter para continuar]`);
         await printLento(`Pygma: Qual é seu nome?`);
-        const nomeEscolhido = await lerInput(`Insira o nome do Héroi: `)
-        personagem.nome = nomeEscolhido  
-        await printLento(`Seu nome agora é ${personagem.nome}.`)  // Teste do nome do héroi
+        let nomeEscolhido = "";
+
+        while (nomeEscolhido.trim() === "") {
+            nomeEscolhido = await lerInput(`Insira o nome do Herói: `);
+            
+            if (nomeEscolhido.trim() === "") {
+                console.log("O nome do herói não pode ficar em branco! Por favor, digite algo.");
+            }
+        }
+
+        personagem.nome = nomeEscolhido.trim();  
+        
+        await printLento(`Seu nome agora é ${personagem.nome}.`);  // Teste do nome do herói
         await lerInput(`[Enter para continuar]`);
         await printLento(`Você realmente se achava um herói?`);
         await lerInput(`[Enter para continuar]`);

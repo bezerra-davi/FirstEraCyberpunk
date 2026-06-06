@@ -2,7 +2,7 @@ export const habilidades = [                      // basicamente todas as habili
     {nome: `slash`, custo: 4, dano: 8},
     {
         nome: `Ishin cut`, custo: 7, dano:7,
-        debuff: { nome: "Sangramento", danoPorTurno: 3, duracao: 2 }
+        debuff: { nome: "Sangramento", danoPorTurno: 3, duracao: 3 }
     },
     {nome: `Smash`, custo: 2, dano: 4},
     {nome: `Dash slash`, custo: 3, dano: 5},

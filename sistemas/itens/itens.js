@@ -21,18 +21,19 @@ export const itens = [                      // basicamente todos os itens do jog
 ]
 
 export const itensExclusivos = [
-// arma
-{nome: `Olho do Chacal`, tipo: `arma`, categoria: `Transformação`, bonusAtaque: 4},
-
-// armadura
-{nome: `Dente do Chacal`, tipo: `armadura`, bonusVidaMaxima: 10, bonusDefesa: 4} 
-
+    { nome: `Olho do Chacal`, tipo: `consumivel`, bonusAtaque: 4 },
+    { nome: `Dente do Chacal`, tipo: `consumivel`, bonusVidaMaxima: 10, bonusDefesa: 4 } 
 ]
 
 export function buscarItem(nome) {
     for (let i = 0; i < itens.length; i++) {
         if (itens[i].nome === nome) {
-        return itens[i];
+            return itens[i];
+        }
+    }
+    for (let i = 0; i < itensExclusivos.length; i++) {
+        if (itensExclusivos[i].nome === nome) {
+            return itensExclusivos[i];
         }
     }
 }

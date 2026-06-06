@@ -99,9 +99,54 @@ export async function usarHabilidade(personagem, nomeHabilidade, alvo){
     }
 }
 
-export function usarItem(personagem, nomeItem){
+export async function usarItem(personagem, nomeItem){
     const item = Itens.buscarItem(nomeItem);
-    Status.curarVida(personagem, item.cura);
-    Status.curarEnergia(personagem, item.curaEnergia);
-    console.log(`${personagem.nome} usou ${item.nome} e recuperou ${item.cura} de vida e ${item.curaEnergia} de energia!`);
+
+    if (!item) {
+        console.log(`Item não encontrado.`);
+        return;
+    }
+    
+    if (item.cura > 0) {
+        Status.curarVida(personagem, item.cura);
+    }
+    if (item.curaEnergia > 0) {
+        Status.curarEnergia(personagem, item.curaEnergia);
+    }
+
+    if (item.cura > 0 || item.curaEnergia > 0) {
+        console.log(`${personagem.nome} usou ${item.nome} e recuperou ${item.cura || 0} de vida e ${item.curaEnergia || 0} de energia!`);
+    }
+
+    // OLHO DO CHACAL
+    if (item.nome === 'Olho do Chacal') {
+        if (!personagem.textosLidos.olhoChacal) {
+            await esperar(2000);
+            await printLento(`\n "Seus olhos começam a mudar de col para uma tonalidade carmesim, e as sombras começam a surgir em sua volta..."`);
+            await esperar(1000);
+            await printLento(`Transformação concluída.`);
+            await esperar(1000);
+            personagem.textosLidos.olhoChacal = true;
+        }
+        
+        personagem.ataque += item.bonusAtaque;
+        console.log(`O poder do Chacal corre pelas suas veias! Seu ataque subiu permanentemente em +${item.bonusAtaque}.`);
+    }
+
+    // DENTE DO CHACAL
+    if (item.nome === 'Dente do Chacal') {
+        if (!personagem.textosLidos.denteChacal) {
+            await esperar(2000);
+            await printLento(`\n "Presas ancestrais surgem, seus instintos começam a se aprimorar, a vontade de caçar aumenta..."`);
+            await esperar(1000);
+            await printLento(`Transformação concluída, seus instintos foram despertados.`);
+            await esperar(1000);
+            personagem.textosLidos.denteChacal = true;
+        }
+        
+        personagem.vidaMaxima += item.bonusVidaMaxima;
+        personagem.vida += item.bonusVidaMaxima;
+        personagem.defesa += item.bonusDefesa;
+        console.log(`Seu corpo se adaptou! Vida Máxima +${item.bonusVidaMaxima} e Defesa +${item.bonusDefesa}.`);
+    }
 }

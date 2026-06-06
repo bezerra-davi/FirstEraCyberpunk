@@ -113,14 +113,15 @@ export async function executarTurno(atacante, alvo){
                     
                     if (itemEscolhido) {
                         if (itemEscolhido.tipo === 'consumivel') {
-                            Acoes.usarItem(atacante, itemEscolhido.nome);
+                            await Acoes.usarItem(atacante, itemEscolhido.nome);
+                            atacante.itens.splice(escolhaItem - 1, 1); 
+                            
                         } else if (itemEscolhido.tipo === 'arma' || itemEscolhido.tipo === 'armadura') {
                             Status.equiparItem(atacante, itemEscolhido);
+
                         } else {
                             console.log(`Este item não pode ser usado no momento.`);
                         }
-                        
-                        atacante.itens.splice(escolhaItem - 1, 1);
                         break;
                     } else {
                         console.log(`Você não tem um item na posição ${escolhaItem}. Tente novamente.`);

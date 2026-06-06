@@ -95,11 +95,17 @@ export function restaurarStatus(personagem) {
 }
 
 export function equiparItem(personagem, equipamento) {
-    const indexItem = personagem.itens.indexOf(equipamento);
+    const indexItem = personagem.itens.findIndex(function(item) {
+        return item.nome === equipamento.nome;
+    });
+    
     if (indexItem > -1) {
         personagem.itens.splice(indexItem, 1);
     }
-    if (equipamento.tipo === `arma`) {
+
+    const tipoItem = equipamento.tipo.toLowerCase(); 
+
+    if (tipoItem === `arma`) {
         if (personagem.armaEquipada !== null) {
             personagem.ataque -= personagem.armaEquipada.bonusAtaque;
             personagem.itens.push(personagem.armaEquipada);
@@ -111,7 +117,7 @@ export function equiparItem(personagem, equipamento) {
         console.log(`Você equipou ${equipamento.nome}. Seu ataque subiu para ${personagem.ataque}.`);
     } 
     
-    else if (equipamento.tipo === `armadura`) {
+    else if (tipoItem === `armadura`) {
         if (personagem.armaduraEquipada !== null) {
             personagem.vidaMaxima -= personagem.armaduraEquipada.bonusVidaMaxima;
             personagem.defesa -= personagem.armaduraEquipada.bonusDefesa;
