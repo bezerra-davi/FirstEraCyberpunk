@@ -97,17 +97,9 @@ git pull
 * Antes de usar `git pull` ou `node main.js`, certifique-se de estar dentro da pasta do projeto.
 * O jogo foi desenvolvido para ser executado pelo terminal utilizando Node.js.
 
-## Autores
 
-* Marco Antônio
-* Álvaro Dias
-* Davi Bezerra
 
-## Observações Finais
-
-* Esse projeto foi desenvolvido por estudantes da Universidade de Fortaleza(UNIFOR) como parte de um projeto acadêmico
-
-### //////////////////////////////////////////////////////////////////
+### /////////////////////////////////////////////////////////////////////////////////////////////////
 
 # Como Executar no WINDOWS
 
@@ -127,5 +119,17 @@ para executar o projeto então use o comando:
 ```powershell
 node main.js
 ```
+
+## /////////////////////////////////////////////////////////////////////////////////////////////////
+
+## Autores
+
+* Marco Antônio
+* Álvaro Dias
+* Davi Bezerra
+
+## Observações Finais
+
+Esse projeto foi desenvolvido por estudantes da Universidade de Fortaleza(UNIFOR) como parte de um projeto acadêmico
 
 Tenha uma ótima experiência
