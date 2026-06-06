@@ -141,7 +141,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await esperar(1000);
             
             await printLento(`Um espectro distorcido bloqueia o corredor.`);
-            const ecoSolidao = Status.criarPersonagem(`Eco da Solidão`, 2000, 0, 2000, 3, 12, false);
+            const ecoSolidao = Status.criarPersonagem(`Eco da Solidão`, 32, 0, 10, 7, 14, false);
             vitoria =await Turno.iniciarCombate(personagem, ecoSolidao);
             
             if (!vitoria) {
@@ -154,7 +154,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await lerInput(`[Enter para continuar]`);
 
             await printLento(`As pedras vermelhas da parede se desprendem e formam um golem bizarro.`);
-            const pesoArrependimento = Status.criarPersonagem(`Peso do Arrependimento`, 80, 0, 8, 8, 2, false);
+            const pesoArrependimento = Status.criarPersonagem(`Peso do Arrependimento`, 36, 0, 12, 8, 2, false);
             vitoria = await Turno.iniciarCombate(personagem, pesoArrependimento);
             
             if (!vitoria) {
@@ -187,7 +187,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await printLento(`A face da sua própria submissão avança contra você.`);
             
             // O clone copia os atributos base do herói.
-            const cloneHeroi = Status.criarPersonagem(`Reflexo de ${personagem.nome}`, personagem.vidaMaxima, 0, personagem.ataque, personagem.defesa, personagem.velocidade, false);
+            const cloneHeroi = Status.criarPersonagem(`Reflexo de ${personagem.nome}`, (personagem.vidaMaxima - 8), 0, (personagem.ataque - 2), (personagem.defesa - 2), (personagem.velocidade - 2), false);
             vitoria = await Turno.iniciarCombate(personagem, cloneHeroi);
             
             if (!vitoria) {
@@ -230,7 +230,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await printLento(`É lutar pela sua liberdade, ou ficar aqui para sempre.`);
             await lerInput(`[Enter para continuar]`);
             
-            const bossPygma = Status.criarPersonagem(`Pygma, o Prisioneiro Eterno`, 150, 0, 15, 8, 20, false);
+            const bossPygma = Status.criarPersonagem(`Pygma, o Prisioneiro Eterno`, 72, 0, 14, 10, 20, false);
             vitoria = await Turno.iniciarCombate(personagem, bossPygma);
             
             if (!vitoria) {
@@ -321,7 +321,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             await lerInput(`[Enter para continuar]`)
             await printLento(`Pygma começa a se contorcer. Seu corpo se retorce em uma transformação dolorosa, enquanto gritos de pura agonia ecoam por toda a masmorra... Quando tudo finalmente se acalma, Pygma já não é mais humano. Agora, transformado, ele é apenas um monstro que precisa ser derrotado.`)
             await lerInput(`[Enter para continuar]`)
-            const pygma = Status.criarPersonagem(`pygma, O Prisioneiro Eterno`, 100, 30, 40, 4, 15, false)
+            const pygma = Status.criarPersonagem(`pygma, O Prisioneiro Eterno`, 100, 0, 16, 12, 25, false)
             vitoria = await Turno.iniciarCombate(personagem, pygma);
 
             if (!vitoria) {
