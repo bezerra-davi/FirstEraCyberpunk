@@ -119,11 +119,12 @@ export async function executarCenaFloresta(cena, personagem) {
             await printLento(`De repente você encontra um coelho azul e você fica surpreso com a tamanha conveniência.`);
             await lerInput(`[Enter para continuar]`);
             
-            const coelho = Status.criarPersonagem(`Coelho Azul`, 4, 0, 1, 1, 3, false);
+            const coelho = Status.criarPersonagem(`Coelho Azul`, 2000, 0, 2000, 2000, 3, false);
             vitoria = await Turno.iniciarCombate(personagem, coelho);
 
             if (!vitoria) {
                 await printLento(`Você subestimou a floresta. O que parecia uma criatura inofensiva avança com uma ferocidade irracional. Sua visão escurece no chão frio, enquanto o pequeno animal volta a saltar calmamente sobre o seu corpo...`);
+                await lerInput(`[Enter para continuar]`);
                 return null; 
             }
             
@@ -155,6 +156,7 @@ export async function executarCenaFloresta(cena, personagem) {
             
             if (!vitoria) {
                 await printLento(`A fúria territorial da criatura é demais para você. Desabando sem forças, seus olhos se fecham enquanto escuta os rosnados protetores da mãe, ecoando o preço de ter invadido o ninho errado...`);
+                await lerInput(`[Enter para continuar]`);
                 return null; 
             }
 

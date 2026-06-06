@@ -156,6 +156,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             
             if (!vitoria) {
                 await printLento(`A névoa arroxeada da criatura invade seus pulmões e paralisa seus membros. Não há dor física, apenas um vazio insuportável. Você percebe, tarde demais, que agora faz parte da própria solidão que tentou escapar...`);
+                await lerInput(`[Enter para continuar]`);
                 return null;
             }
 
@@ -169,6 +170,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             
             if (!vitoria) {
                 await printLento(`As pedras vermelhas desabam esmagando suas últimas forças. Sob o peso esmagador do golem, você percebe que o que te parou não foi a rocha, mas o fardo de suas próprias escolhas ruins. A masmorra soterra suas esperanças...`);
+                await lerInput(`[Enter para continuar]`);
                 return null;
             }
 
@@ -202,6 +204,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             
             if (!vitoria) {
                 await printLento(`O reflexo assume o controle do seu corpo enquanto você sente sua consciência ser empurrada para trás do vidro escuro de obsidiana. Através do espelho, você assiste, impotente, a sua cópia sorrir e caminhar rumo à eternidade de Pygma...`);
+                await lerInput(`[Enter para continuar]`);
                 return null;
             }
 
@@ -245,6 +248,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             
             if (!vitoria) {
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
+                await lerInput(`[Enter para continuar]`);
                 return null;
             }
 
@@ -336,6 +340,7 @@ export async function executarCenaMasmorra(cena, personagem) {
 
             if (!vitoria) {
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
+                await lerInput(`[Enter para continuar]`);
                 return null;
             }
                 
