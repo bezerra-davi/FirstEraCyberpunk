@@ -19,9 +19,9 @@ export async function executarCenaSonho(cena, personagem) {
         await lerInput(`[Enter para continuar]`);
         await printLento(`Você não enxerga o fim e nem o começo`)
         await lerInput(`[Enter para continuar]`);
-        await printLento(`Mas uma presença coemça a aparecer em seu caminho`)
+        await printLento(`Mas uma presença começa a aparecer em seu caminho`)
         await lerInput(`[Enter para continuar]`);
-        await printLento(`Uma criatura repleta de sombras, com uma forma de chacal`)
+        await printLento(`Uma criatura repleta de sombras, com forma de chacal`)
         await lerInput(`[Enter para continuar]`);
         await printLento(`Você percebe a intenção hostil da criatura`)
         await lerInput(`[Enter para continuar]`);
