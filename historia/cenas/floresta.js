@@ -84,7 +84,7 @@ export async function executarCenaFloresta(cena, personagem) {
                     await lerInput(`[Enter para lutar por sua vida]`);
                     
                     
-                    const espiritoSamurai = Status.criarPersonagem(`Espírito do Espadachim`, 20, 0, 7, 1, 8, false);
+                    const espiritoSamurai = Status.criarPersonagem(`Espírito do Espadachim`, 18, 0, 4, 2, 10, false);
                     vitoria = await Turno.iniciarCombate(personagem, espiritoSamurai);
                     
                     if (!vitoria) {
@@ -151,7 +151,7 @@ export async function executarCenaFloresta(cena, personagem) {
             await lerInput(`[Enter para continuar]`);
             await printLento(`Seus olhares se cruzam. O combate começou`);
             
-            const maeCoelho = Status.criarPersonagem(`Mãe Coelho Azul`, 15, 0, 5, 3, 6, false);
+            const maeCoelho = Status.criarPersonagem(`Mãe Coelho Azul`, 14, 0, 3, 1, 6, false);
             vitoria = await Turno.iniciarCombate(personagem, maeCoelho);
             
             if (!vitoria) {
