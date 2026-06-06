@@ -1,4 +1,6 @@
 import { lerInput, printLento } from '../../input.js';
+import * as Itens from '../../sistemas/itens/itens.js';
+import * as Status from '../../sistemas/personagem/status.js';
 
 export async function executarCenaCabana(cena, personagem) {
   switch(cena) {
