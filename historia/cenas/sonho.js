@@ -54,13 +54,13 @@ export async function executarCenaSonho(cena, personagem) {
 
         if(opcao === 1){
             const olhoChacal = Itens.buscarItemExclusivo(`Olho do Chacal`)
-            Status.pegarItens(personagem, olhoChacal)
+            Status.pegarItem(personagem, olhoChacal)
             await printLento(`Você obteve o olho do Chacal`)
             await lerInput(`[Enter para continuar]`)
 
         } else if(opcao === 2) {
             const denteChacal = Itens.buscarItemExclusivo(`Dente do Chacal`)
-            Status.pegarItens(personagem, denteChacal)
+            Status.pegarItem(personagem, denteChacal)
             await printLento(`Você obteve o Dente do Chacal`)
             await lerInput(`[Enter para continuar]`)
 
