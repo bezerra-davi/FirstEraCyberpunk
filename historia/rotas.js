@@ -32,20 +32,17 @@ export async function iniciarJogo(personagem) {
   console.clear();
   await esperar(1000);
   await printLento(`Uma experiência criada e desenvolvida por:`);
-  await esperar(300);
+  await esperar(700);
   
   console.log(`\n`);
-  await printLento(`Marco Antonio`);
+  await printLento(`Marco Antônio`);
   await esperar(800);
-  await printLento(`Álvaro Diaz`);
+  await printLento(`\nÁlvaro Dias`);
   await esperar(800);
-  await printLento(`Davi Bezerra`);
+  await printLento(`\nDavi Bezerra`);
   await esperar(2500);
-
-  console.clear();
-  await esperar(1500);
   
-  await printLentoFinal(`Continua...`);
+  await printLentoFinal(`\nContinua...`);
 
   fecharInput();
 }
