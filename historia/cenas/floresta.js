@@ -58,8 +58,8 @@ export async function executarCenaFloresta(cena, personagem) {
                 await printLento(`Ele não te ataca de imediato. Apenas flutua, encarando a sua alma com olhos profundos e vazios.`);
                 await lerInput(`[Enter para decidir o que fazer]`);
                 
-                console.log(`1 - Curvar-se em sinal de profundo respeito e agradecimento`);
-                console.log(`2 - Avançar agressivamente e tentar sacar a Katana à força`);
+                console.log(`1 - Curvar-se`);
+                console.log(`2 - Avançar em direção à Katana e ao traje`);
                 const escolhaLago = parseInt(await lerInput(``));
                 
                 if (escolhaLago === 1) {
