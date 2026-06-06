@@ -28,7 +28,7 @@ export async function executarCenaSonho(cena, personagem) {
         await printLento(`As vozes começam a aumentar e sua frequência começa a pertubar o Herói`)
         await lerInput(`[Enter para continuar]`);
         await printLento(`A criatura avança em sua direção, você entra em postura de batalha`)
-        const chacal = Status.criarPersonagem(`Chacal, O Principe dos Sonhos`, 2, 25, 9, 5, 8, false)
+        const chacal = Status.criarPersonagem(`Chacal, O Principe dos Sonhos`, 2, 25, 9, 0, 8, false)
         vitoria = await Turno.iniciarCombate(personagem, chacal)
 
         if (!vitoria) {
