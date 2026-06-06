@@ -110,6 +110,21 @@ export async function executarCenaMasmorra(cena, personagem) {
             await printLento(`. . .`);
             await esperar(1000);
             await lerInput(`[Enter para continuar]`);
+
+            await printLento(`Ao tatear as paredes escuras, você tropeça em um antigo baú de pedra soterrado por escombros.`);
+            await printLento(`Dentro dele, um brilho arroxeado pulsa.`);
+            
+            const katanaShadow = Itens.buscarItem(`Katana de Shadow Stone`);
+            const armaduraShadow = Itens.buscarItem(`Armadura de Shadow Stone`);
+            
+            Status.pegarItem(personagem, katanaShadow);
+            Status.pegarItem(personagem, armaduraShadow);
+            
+            await printLento(`Você obteve: [${katanaShadow.nome}] e [${armaduraShadow.nome}].`);
+            await printLento(`Sentindo o perigo iminente, você equipa os artefatos rapidamente.`);
+            Status.equiparItem(personagem, katanaShadow);
+            Status.equiparItem(personagem, armaduraShadow);
+            await lerInput(`[Enter para continuar]`);
             
             await printLento(`Você se lembra que é necessário perceber quando algo te faz bem ou te faz mal.`);
             await printLento(`Essa situação não parece te fazer bem.`);
@@ -232,7 +247,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             for (let i = 0; i < 5; i++) {
             await printLento(`VOCÊ NÃO PODE SAIR`);
             await esperar(200);
-            
+            }
 
             await printLento(`${personagem.nome} e Pygma se encaram, talvez, por uma ultima vez...`)
             await lerInput(`[Enter para continuar]`)
@@ -241,7 +256,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             const pygma = Status.criarPersonagem(`pygma, O Prisioneiro Eterno`, 100, 30, 6, 4, 15, false)
             await Turno.iniciarCombate(personagem, pygma)
 
-                 if (!Status.estarVivo(personagem)) {
+                if (!Status.estarVivo(personagem)) {
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
                 return 1;
             }
@@ -254,44 +269,37 @@ export async function executarCenaMasmorra(cena, personagem) {
             await lerInput(`[Enter para continuar]`);
             await printLento(`Pygma fecha os olhos e morre no silêncio pós-batalha.`);
             await lerInput(`[Enter para continuar]`);
-        }
+        
     
-        await esperar(600);
-        await printLento(`...`);
-        await esperar(800);
-        
-        //const Pygma = Status.criarPersonagem(`Pygma`, vida, energia, ataque, defesa, velocidade, false);
-        //await Turno.iniciarCombate(personagem, inimigo);
-    }
-        //Opções: (Aqui vai ter o timer dramático)
-        
-        //- Correr
-        //- Lutar
+            await esperar(600);
+            await printLento(`...`);
+            await esperar(800);
 
-        //Lutar:
-        // Vocês entram num combate //
-        // Vai ter drama e texto do tipo "VOCÊ NÃO PODE SAIR" floodando a tela de forma dramática"
-
-        //"Realmente"
-
-        //"Ele está morto agora"
-
-        //" . . . "
-
-        //"O silêncio agora presente é assustador"
-
-        //"A masmorra está muito macabra então você decide voltar para a cabana para explorar os livros que ele escreveu"
-
-        //". . . "
-
-        //"Vou poupar você um pouco sobre os escritos dramáticos de Pygma e mostrar somente a notícia ruim"
-
-        //"Você agora está preso nessa floresta que o Pygma esteve preso a 1000 anos, que ele construiu e ficou eternamente preso"
-
-        //"Você libertou Pygma de seu sofrimento que tanto acreditava ser o melhor paraíso do mundo"
-
-        //"E agora?"
-        
+            await printLento(`O silêncio agora presente é assustador.`);
+            await printLento(`A masmorra ficou fria e extremamente macabra, então você decide voltar correndo para a cabana para explorar os livros que ele escreveu e achar uma saída.`);
+            await lerInput(`[Enter para continuar]`);
+                
+            await printLento(`Você abre os manuscritos empoeirados na estante. Vou poupar você um pouco sobre os longos e dramáticos escritos de Pygma e mostrar somente a notícia ruim...`);
+            await esperar(1500);
+                
+            await printLento(`Nas últimas páginas, a tinta fresca revela a terrível verdade de como esta dimensão funciona:`);
+            await printLento(`"A floresta exige um arquiteto. Uma mente para mantê-la viva."`);
+            await lerInput(`[Enter para continuar]`);
+                
+            await printLento(`Você sente uma fisgada violenta no peito. Seus olhos começam a brilhar com o mesmo tom roxo que Pygma tinha.`);
+            await printLento(`Você libertou Pygma de seu sofrimento que ele tanto acreditava ser o melhor paraíso do mundo...`);
+            await printLento(`E agora?`);
+            await esperar(1000);
+                
+            await printLento(`Você agora está preso nessa floresta que o Pygma esteve preso há 1000 anos, que ele construiu e ficou eternamente confinado.`);
+            await printLento(`Você caminha até a janela da cabana. Você é o novo Dono.`);
+            await lerInput(`[Enter para continuar]`);
+            
+            return null;
+            }
+            else {
+                console.log(`Opção inválida. Escolha 1 ou 2.`);
+            }
         return null;
         }
     }
