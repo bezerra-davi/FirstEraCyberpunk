@@ -7,22 +7,22 @@ export const itens = [                      // basicamente todos os itens do jog
     {nome: `Bolt`, tipo: `consumivel`, cura: 0, curaEnergia: 20},
 
     // armas
-    { nome: `Espada de Aço`, tipo: `arma`, categoria: `espada`, bonusAtaque: 3 },
-    { nome: `Katana`, tipo: `arma`, categoria: `katana`, bonusAtaque: 4 },
-    { nome: `Katana de Shadow Stone`, tipo: `arma`, categoria: `katana`, bonusAtaque: 5 },
-    { nome: `Nichirin`, tipo: `arma`, categoria: `katana`, bonusAtaque: 6 },
+    { nome: `Espada de Aço`, tipo: `arma`, categoria: `espada`, bonusAtaque: 1 },
+    { nome: `Katana`, tipo: `arma`, categoria: `katana`, bonusAtaque: 2 },
+    { nome: `Katana de Shadow Stone`, tipo: `arma`, categoria: `katana`, bonusAtaque: 3 },
+    { nome: `Nichirin`, tipo: `arma`, categoria: `katana`, bonusAtaque: 4 },
 
     // armaduras
-    { nome: `Traje de Ronin`, tipo: `armadura`, bonusVidaMaxima: 8, bonusDefesa: 2 },
-    { nome: `Armadura de Placas`, tipo: `armadura`, bonusVidaMaxima: 10, bonusDefesa: 3 },
-    { nome: `Armadura de Shadow Stone`, tipo: `armadura`, bonusVidaMaxima: 15, bonusDefesa: 5 },
+    { nome: `Traje de Ronin`, tipo: `armadura`, bonusVidaMaxima: 5, bonusDefesa: 1 },
+    { nome: `Armadura de Placas`, tipo: `armadura`, bonusVidaMaxima: 8, bonusDefesa: 2 },
+    { nome: `Armadura de Shadow Stone`, tipo: `armadura`, bonusVidaMaxima: 12, bonusDefesa: 3 },
 
 
 ]
 
 export const itensExclusivos = [
-    { nome: `Olho do Chacal`, tipo: `consumivel`, bonusAtaque: 4 },
-    { nome: `Dente do Chacal`, tipo: `consumivel`, bonusVidaMaxima: 10, bonusDefesa: 4 } 
+    { nome: `Olho do Chacal`, tipo: `consumivel`, bonusAtaque: 3 },
+    { nome: `Dente do Chacal`, tipo: `consumivel`, bonusVidaMaxima: 8, bonusDefesa: 2 } 
 ]
 
 export function buscarItem(nome) {
