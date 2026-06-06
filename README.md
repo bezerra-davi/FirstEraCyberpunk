@@ -97,6 +97,12 @@ git pull
 * Antes de usar `git pull` ou `node main.js`, certifique-se de estar dentro da pasta do projeto.
 * O jogo foi desenvolvido para ser executado pelo terminal utilizando Node.js.
 
+## AUTORES
+
+
+
+* Esse projeto foi desenvolvido por estudantes da Universidade de Fortaleza(UNIFOR) como parte de um projeto acadêmico
+
 
 
 
