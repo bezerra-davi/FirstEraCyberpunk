@@ -20,6 +20,15 @@ export const itens = [                      // basicamente todos os itens do jog
 
 ]
 
+export const itensExclusivos = [
+// arma
+{nome: `Olho do Chacal`, tipo: `arma`, categoria: `Transformação`, bonusAtaque: 30},
+
+// armadura
+{nome: `Dente do Chacal`, tipo: `armadura`, bonusVidaMaxima: 40, bonusDefesa: 10} 
+
+]
+
 export function buscarItem(nome) {
     for (let i = 0; i < itens.length; i++) {
         if (itens[i].nome === nome) {
@@ -28,6 +37,14 @@ export function buscarItem(nome) {
     }
 }
 
+export function buscarItemExclusivo(nome) {
+    for (let i = 0; i < itensExclusivos.length; i++) {
+        if (itensExclusivos[i].nome === nome) {
+        return itensExclusivos[i];
+        }
+    }
+}
+        
 export function abrirBau(itens) {  // funcao para um sistema de abrir baus nas rotas
   const indice = Math.floor(Math.random() * itens.length);
   const itemSorteado = itens[indice];
