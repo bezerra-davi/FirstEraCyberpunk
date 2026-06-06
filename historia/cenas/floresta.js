@@ -119,7 +119,7 @@ export async function executarCenaFloresta(cena, personagem) {
             await printLento(`De repente você encontra um coelho azul e você fica surpreso com a tamanha conveniência.`);
             await lerInput(`[Enter para continuar]`);
             
-            const coelho = Status.criarPersonagem(`Coelho Azul`, 0, 4, 1, 1, 4, false);
+            const coelho = Status.criarPersonagem(`Coelho Azul`, 4, 0, 1, 1, 4, false);
             vitoria = await Turno.iniciarCombate(personagem, coelho);
 
             if (!vitoria) {
