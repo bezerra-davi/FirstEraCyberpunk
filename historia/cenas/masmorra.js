@@ -240,7 +240,70 @@ export async function executarCenaMasmorra(cena, personagem) {
 
             await printLento(`\nPygma cai no chão, ofegante, enquanto a floresta começa a desmoronar em pixels e fumaça ao redor de vocês...`);
             
-            // continua para o final do jogo
+            await lerInput(`[Enter para continuar]`);
+
+            await printLento(`O chão sob seus pés racha, revelando o vazio. A realidade simulada por mil anos está se desfazendo porque a mente que a sustentava foi vencida.`);
+            await printLento(`Pygma olha para as próprias mãos, que começam a desaparecer como cinzas ao vento. O semblante de fúria dele some, dando lugar a um cansaço pacífico.`);
+            await lerInput(`[Enter para continuar]`);
+
+            await printLento(`Pygma: Então...`);
+            await esperar(1000);
+            await printLento(`Pygma: É assim que termina?...`);
+            await esperar(1000);
+            await printLento(`Pygma: O mundo real... ainda é tão barulhento quanto eu me lembrava?`);
+            await esperar(1000);
+
+            await printLento(`Você não diz nada. Apenas acena com a cabeça, estendendo a mão em um último gesto de respeito ao homem que ele já foi um dia.`);
+            await esperar(1000);
+            await printLento(`Pygma dá um sorriso fraco, quase imperceptível, antes de se desintegrar completamente.`);
+            await lerInput(`[Enter para continuar]`);
+
+            await esperar(1000);
+            await printLento(`Tudo fica branco.`);
+            await esperar(1500);
+            await printLento(`Um silêncio absoluto toma conta de tudo, mas não é mais o silêncio macabro da masmorra... É o silêncio da paz.`);
+            await lerInput(`[Enter para continuar]`);
+
+            await printLento(`...`);
+            await esperar(1000);
+            await printLento(`De repente, você puxa o ar com força, como se estivesse emergindo de um mergulho profundo.`);
+            await printLento(`O cheiro de mofo, sangue e magia roxa sumiu.`);
+            await lerInput(`[Enter para continuar]`);
+
+            await printLento(`Você abre os olhos. Suas mãos estão limpas.`);
+            await esperar(1000);
+            await printLento(`Suas armas...`);
+            await esperar(1000);
+            await printLento(`Suas armaduras...`);
+            await esperar(1000);
+            await printLento(`Desapareceram completamente.`);
+            await esperar(300);
+            await printLento(`Existindo agora apenas na sua memória.`);
+            await esperar(1000);
+
+            await printLento(`Você está caído na grama verde... O sol... o sol de verdade, quente e brilhante, bate no seu rosto.`);
+            await lerInput(`[Enter para continuar]`);
+
+            await printLento(`Você olha ao redor. Você está na borda da floresta de Pygma, mas ela mudou. Não há mais névoa, não há mais caminhos que se movem. São apenas árvores comuns, balançando com o vento real.`);
+            await printLento(`Atrás de você, a masmorra e a cabana não passam de ruínas antigas e soterradas, cobertas de vegetação há séculos.`);
+            await lerInput(`[Enter para continuar]`);
+
+            await printLento(`Você se levanta, limpando a poeira das suas roupas.`);
+            await printLento(`Seu corpo dói, sua mente está exausta e você sabe que o mundo lá fora ainda tem problemas, dores e desafios te esperando.`);
+            await esperar(1000);
+            await printLento(`Mas, pela primeira vez em muito tempo, você sorri.`);
+            await printLento(`Você enfrentou seus piores medos, rejeitou a mentira fácil e escolheu viver.`);
+            await lerInput(`[Enter para continuar]`);
+
+            await printLento(`Você dá as costas para as ruínas e caminha em direção ao horizonte, livre.`);
+            await esperar(1500);
+
+            console.clear();
+            await esperar(1000);
+            await printLento(`Fim.`);
+            await esperar(2000);
+            await printLento(`...Da rota de fuga.`);
+
             return null;
             }
         else if (escolha === 2) {
@@ -300,6 +363,11 @@ export async function executarCenaMasmorra(cena, personagem) {
             await printLento(`Você caminha até a janela da cabana. Você é o novo Dono.`);
             await lerInput(`[Enter para continuar]`);
             
+            console.clear();
+            await esperar(1000);
+            await printLento(`Fim da rota de luta.`);
+            await esperar(2000);    
+
             return null;
             }
             else {
