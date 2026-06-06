@@ -93,6 +93,7 @@ export async function executarCenaMasmorra(cena, personagem) {
         const escolha = parseInt(await lerInput(``));
 
         if (escolha === 1) {
+            let vitoria;
             await esperar(500);
             await printLento(`Você corre, corre pelo corredor e você escuta o Pygma gritar por você...`);
             await esperar(1000);
@@ -141,9 +142,10 @@ export async function executarCenaMasmorra(cena, personagem) {
             
             await printLento(`Um espectro distorcido bloqueia o corredor.`);
             const ecoSolidao = Status.criarPersonagem(`Eco da Solidão`, 2000, 0, 2000, 3, 12, false);
-            await Turno.iniciarCombate(personagem, ecoSolidao);
+            vitoria =await Turno.iniciarCombate(personagem, ecoSolidao);
             
-            if (!Status.estarVivo(personagem)) {
+            if (!vitoria) {
+                await printLento(`A névoa arroxeada da criatura invade seus pulmões e paralisa seus membros. Não há dor física, apenas um vazio insuportável. Você percebe, tarde demais, que agora faz parte da própria solidão que tentou escapar...`);
                 return null;
             }
 
@@ -153,9 +155,10 @@ export async function executarCenaMasmorra(cena, personagem) {
 
             await printLento(`As pedras vermelhas da parede se desprendem e formam um golem bizarro.`);
             const pesoArrependimento = Status.criarPersonagem(`Peso do Arrependimento`, 80, 0, 8, 8, 2, false);
-            await Turno.iniciarCombate(personagem, pesoArrependimento);
+            vitoria = await Turno.iniciarCombate(personagem, pesoArrependimento);
             
-            if (!Status.estarVivo(personagem)) {
+            if (!vitoria) {
+                await printLento(`As pedras vermelhas desabam esmagando suas últimas forças. Sob o peso esmagador do golem, você percebe que o que te parou não foi a rocha, mas o fardo de suas próprias escolhas ruins. A masmorra soterra suas esperanças...`);
                 return null;
             }
 
@@ -185,9 +188,10 @@ export async function executarCenaMasmorra(cena, personagem) {
             
             // O clone copia os atributos base do herói.
             const cloneHeroi = Status.criarPersonagem(`Reflexo de ${personagem.nome}`, personagem.vidaMaxima, 0, personagem.ataque, personagem.defesa, personagem.velocidade, false);
-            await Turno.iniciarCombate(personagem, cloneHeroi);
+            vitoria = await Turno.iniciarCombate(personagem, cloneHeroi);
             
-            if (!Status.estarVivo(personagem)) {
+            if (!vitoria) {
+                await printLento(`O reflexo assume o controle do seu corpo enquanto você sente sua consciência ser empurrada para trás do vidro escuro de obsidiana. Através do espelho, você assiste, impotente, a sua cópia sorrir e caminhar rumo à eternidade de Pygma...`);
                 return null;
             }
 
@@ -227,9 +231,9 @@ export async function executarCenaMasmorra(cena, personagem) {
             await lerInput(`[Enter para continuar]`);
             
             const bossPygma = Status.criarPersonagem(`Pygma, o Prisioneiro Eterno`, 150, 0, 15, 8, 20, false);
-            await Turno.iniciarCombate(personagem, bossPygma);
+            vitoria = await Turno.iniciarCombate(personagem, bossPygma);
             
-            if (!Status.estarVivo(personagem)) {
+            if (!vitoria) {
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
                 return null;
             }
@@ -240,6 +244,7 @@ export async function executarCenaMasmorra(cena, personagem) {
             return null;
             }
         else if (escolha === 2) {
+            let vitoria;
             await esperar(500);
             await printLento(`Você decide lutar...`);
             await esperar(800);
@@ -254,11 +259,11 @@ export async function executarCenaMasmorra(cena, personagem) {
             await printLento(`Pygma começa a se contorcer. Seu corpo se retorce em uma transformação dolorosa, enquanto gritos de pura agonia ecoam por toda a masmorra... Quando tudo finalmente se acalma, Pygma já não é mais humano. Agora, transformado, ele é apenas um monstro que precisa ser derrotado.`)
             await lerInput(`[Enter para continuar]`)
             const pygma = Status.criarPersonagem(`pygma, O Prisioneiro Eterno`, 100, 30, 40, 4, 15, false)
-            await Turno.iniciarCombate(personagem, pygma)
+            vitoria = await Turno.iniciarCombate(personagem, pygma);
 
-                if (!Status.estarVivo(personagem)) {
+            if (!vitoria) {
                 await printLento(`Sua visão escurece. A última coisa que você ouve é Pygma sussurrando: "Finalmente, um amigo..."`);
-                return 0;
+                return null;
             }
                 
             await printLento(`Após uma longa batalha, Pygma se encontra jogado em meio às pedras frias da masmorra.`);

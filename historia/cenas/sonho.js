@@ -6,6 +6,7 @@ import * as Itens from '../../sistemas/itens/itens.js';
 export async function executarCenaSonho(cena, personagem) {
     switch(cena) {
     case 14:
+        let vitoria;
         await printLento(`Você se encontra em um lugar num túnel subterrâneo...`);
         await lerInput(`[Enter para continuar]`);
         await printLento(`Você escuta várias vozes dizendo para você correr...`);
@@ -28,12 +29,12 @@ export async function executarCenaSonho(cena, personagem) {
         await lerInput(`[Enter para continuar]`);
         await printLento(`A criatura avança em sua direção, você entra em postura de batalha`)
         const chacal = Status.criarPersonagem(`Chacal, O Principe dos Sonhos`, 40, 25, 9, 5, 8, false)
-        await Turno.iniciarCombate(personagem, chacal)
+        vitoria = await Turno.iniciarCombate(personagem, chacal)
 
-        if (!Status.estarVivo(personagem)) {
+        if (!vitoria) {
             await printLento(`Você foi derrotado por ${chacal.nome}`)
             await lerInput(`[Enter para recomeçar]`)
-            return 1;
+            return null;
         }
         
         await printLento(`${chacal.nome} começa a desaparecer nas sombras`)

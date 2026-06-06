@@ -78,16 +78,18 @@ export async function executarCenaFloresta(cena, personagem) {
                     personagem.lagoResolvido = true;
                 } else {
                     // rota combate (escolha errada)
+                    let vitoria;
                     await printLento(`Você ignora a presença da alma e corre em direção aos itens.`);
                     await printLento(`O espírito solta um lamento ecoante cheio de fúria, saca uma lâmina espectral e avança!`);
                     await lerInput(`[Enter para lutar por sua vida]`);
                     
                     
                     const espiritoSamurai = Status.criarPersonagem(`Espírito do Espadachim`, 45, 0, 7, 3, 8, false);
-                    await Turno.iniciarCombate(personagem, espiritoSamurai);
+                    vitoria = await Turno.iniciarCombate(personagem, espiritoSamurai);
                     
-                    if (!Status.estarVivo(personagem)) {
-                        return; 
+                    if (!vitoria) {
+                        await printLento(`O gume frio da lâmina espiritual atravessa seu peito sem encontrar resistência física, mas partindo sua própria alma. O Samurai embainha a espada em silêncio absoluto, deixando você para se tornar apenas mais um sussurro esquecido na névoa...`);
+                        return null; 
                     }
                     
                     await printLento(`Com um último golpe, o espírito se dissipa violentamente no ar, deixando as posses físicas para trás.`);
@@ -109,6 +111,7 @@ export async function executarCenaFloresta(cena, personagem) {
             return 1;
 
         case 4: // clareira do coelho (Rabbit Kick)
+            let vitoria;
             await printLento(`Você encontra mais caminho e seguindo por mais um pouco você encontra uma clareira.`);
             await lerInput(`[Enter para continuar]`);
             await printLento(`O lugar parece muito aconchegante, porém você nota que começa a ficar com fome.`);
@@ -117,7 +120,12 @@ export async function executarCenaFloresta(cena, personagem) {
             await lerInput(`[Enter para continuar]`);
             
             const coelho = Status.criarPersonagem(`Coelho Azul`, 4, 0, 1, 1, 3, false);
-            await Turno.iniciarCombate(personagem, coelho);
+            vitoria = await Turno.iniciarCombate(personagem, coelho);
+
+            if (!vitoria) {
+                await printLento(`Você subestimou a floresta. O que parecia uma criatura inofensiva avança com uma ferocidade irracional. Sua visão escurece no chão frio, enquanto o pequeno animal volta a saltar calmamente sobre o seu corpo...`);
+                return null; 
+            }
             
             const carneCoelho = Itens.buscarItem(`Carne de Coelho`);
             Status.pegarItem(personagem, carneCoelho);
@@ -143,8 +151,13 @@ export async function executarCenaFloresta(cena, personagem) {
             await printLento(`Seus olhares se cruzam. O combate começou`);
             
             const maeCoelho = Status.criarPersonagem(`Mãe Coelho Azul`, 20, 0, 5, 2, 6, false);
-            await Turno.iniciarCombate(personagem, maeCoelho);
+            vitoria = await Turno.iniciarCombate(personagem, maeCoelho);
             
+            if (!vitoria) {
+                await printLento(`A fúria territorial da criatura é demais para você. Desabando sem forças, seus olhos se fecham enquanto escuta os rosnados protetores da mãe, ecoando o preço de ter invadido o ninho errado...`);
+                return null; 
+            }
+
             await printLento(`Você começa a seguir o rastro da mão coelho, até achar um ninho`);
             await lerInput(`[Enter para continuar]`);
             await printLento(`Ao averiguar o ninho, você encontra um Bau com o cadeado destruido`);

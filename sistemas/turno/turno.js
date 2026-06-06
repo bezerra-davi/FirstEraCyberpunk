@@ -182,6 +182,12 @@ export async function iniciarCombate(personagem1, personagem2) {
             break;
         }
     }
-    await recompensaHabilidade(player);
-    Status.restaurarStatus(player);
+
+    if (Status.estarVivo(player)) {
+        await recompensaHabilidade(player);
+        Status.restaurarStatus(player);
+        return true; // Indica Vitória
+    } else {
+        return false; // Indica Derrota
+    }
 }
